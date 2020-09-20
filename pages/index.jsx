@@ -10,7 +10,7 @@ const Home = ({ data }) => {
   const [weatherData, getWeatherData] = useState({});
   const [photo, getPhoto] = useState("");
   const [degree, getDegreeType] = useState({
-    celsius: false,
+    celsius: true,
   });
   const [alert, setAlert] = useState(false);
 
@@ -73,7 +73,11 @@ const Home = ({ data }) => {
         ) : (
           ""
         )}
-        {weatherData.name ? <TempCard key={1} temp={weatherData} /> : ""}
+        {weatherData.name ? (
+          <TempCard key={1} temp={weatherData} degree={degree} />
+        ) : (
+          ""
+        )}
       </main>
 
       <style jsx>{`

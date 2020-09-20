@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const TempCard = ({ temp }) => {
+const TempCard = ({ temp, degree }) => {
   let today = new Date();
   today = today.getMonth() + 1 + "/" + today.getDate();
 
@@ -20,9 +20,15 @@ const TempCard = ({ temp }) => {
       <h3>Today {today}</h3>
       <ul>
         <li>Description: {temp.description} </li>
-        <li>Current Temperature: {temp.curr}</li>
-        <li>Min. Temperature: {temp.min_temp}</li>
-        <li>Max Temperature: {temp.max_temp}</li>
+        <li>
+          Current Temperature: {temp.curr} &#176; {degree.celsius ? "C" : "F"}
+        </li>
+        <li>
+          Min. Temperature: {temp.min_temp} &#176; {degree.celsius ? "C" : "F"}
+        </li>
+        <li>
+          Max Temperature: {temp.max_temp} &#176; {degree.celsius ? "C" : "F"}
+        </li>
       </ul>
     </div>
   );
