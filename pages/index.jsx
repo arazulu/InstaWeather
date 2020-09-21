@@ -1,14 +1,16 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
 import React, { useState } from "react";
 import { Alert, Close } from "theme-ui";
 import Head from "next/head";
 import Form from "../components/Form";
 import TempCard from "../components/TempCard";
+import TempDesc from "../components/TempDesc";
 import fetch from "isomorphic-unfetch";
 
 const Home = ({ data }) => {
   const [cityOrZip, setCityOrZip] = useState("");
   const [weatherData, getWeatherData] = useState({});
-  const [photo, getPhoto] = useState("");
   const [degree, getDegreeType] = useState({
     celsius: true,
   });
@@ -74,10 +76,24 @@ const Home = ({ data }) => {
           ""
         )}
         {weatherData.name ? (
-          <TempCard key={1} temp={weatherData} degree={degree} />
+          <TempDesc
+            name={weatherData.name}
+            main={weatherData.main}
+            pic={weatherData.unsplash}
+            curr={weatherData.curr}
+            desc={weatherData.desc}
+            degree={degree}
+          />
         ) : (
           ""
         )}
+        <section sx={{ display: "flex" }}>
+          {weatherData.name
+            ? weatherData.days.map((curr, idx) => {
+                return <TempCard key={idx} temp={curr} degree={degree} />;
+              })
+            : ""}
+        </section>
       </main>
 
       <style jsx>{`

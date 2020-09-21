@@ -13,6 +13,4 @@ const theme = {
   },
 };
 
-console.log("--THEME--: ", theme);
-
 export default theme;

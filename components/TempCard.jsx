@@ -1,33 +1,27 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getWeatherIcon } from "../helper.js";
 
 const TempCard = ({ temp, degree }) => {
-  let today = new Date();
-  today = today.getMonth() + 1 + "/" + today.getDate();
-
   return (
     <div className="card" sx={{ variant: "containers.card" }}>
-      <section>
-        <h1>{`${temp.name}, ${temp.country}`}</h1>
-        <img
-          alt={temp.description}
-          src={temp.unsplash}
-          sx={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6))`,
-          }}
-        ></img>
-      </section>
-      <h3>Today {today}</h3>
+      <h3>{temp.date}</h3>
+      <h1>
+        {temp.temp} &#176;{degree.celsius ? "C" : "F"}
+      </h1>
+      <FontAwesomeIcon
+        icon={getWeatherIcon(temp.main)}
+        size="xs"
+        color="#333333"
+      />
       <ul>
-        <li>Description: {temp.description} </li>
+        <li>{temp.desc}</li>
         <li>
-          Current Temperature: {temp.curr} &#176; {degree.celsius ? "C" : "F"}
+          Min: {temp.min} &#176;{degree.celsius ? "C" : "F"}
         </li>
         <li>
-          Min. Temperature: {temp.min_temp} &#176; {degree.celsius ? "C" : "F"}
-        </li>
-        <li>
-          Max Temperature: {temp.max_temp} &#176; {degree.celsius ? "C" : "F"}
+          Max: {temp.max} &#176;{degree.celsius ? "C" : "F"}
         </li>
       </ul>
     </div>
