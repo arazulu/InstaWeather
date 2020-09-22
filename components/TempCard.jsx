@@ -18,10 +18,16 @@ const TempCard = ({ temp, degree }) => {
       <ul>
         <li>{temp.desc}</li>
         <li>
-          Min: {temp.min} &#176;{degree.celsius ? "C" : "F"}
+          Min:{" "}
+          {degree.celsius
+            ? `${temp.min} ºC`
+            : `${parseInt(temp.min * 1.8 + 32)} ºF`}
         </li>
         <li>
-          Max: {temp.max} &#176;{degree.celsius ? "C" : "F"}
+          Max:{" "}
+          {degree.celsius
+            ? `${temp.max} ºC`
+            : `${parseInt(temp.max * 1.8 + 32)} ºF`}
         </li>
       </ul>
     </div>

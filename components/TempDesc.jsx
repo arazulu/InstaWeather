@@ -3,12 +3,15 @@ import { getWeatherIcon } from "../helper.js";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-const TempDesc = ({ name, main, pic, curr, desc, degree }) => {
+const TempDesc = ({ name, main, pic, loc, curr, desc, degree }) => {
   console.log("curr", curr);
+
   return (
     <div className="card" sx={{ variant: "containers.card" }}>
       <section>
-        <h1>{`${name}`}</h1>
+        <h1>{loc.place}</h1>
+
+        <h3>Timezone: {name}</h3>
         <img
           alt={desc}
           src={pic}
@@ -22,7 +25,9 @@ const TempDesc = ({ name, main, pic, curr, desc, degree }) => {
       <ul>
         <li>{desc}</li>
         <li>
-          {curr.temp} &#176;{degree.celsius ? "C" : "F"}
+          {degree.celsius
+            ? `${curr.temp} ºC`
+            : `${parseInt(curr.temp * 1.8 + 32)} ºF`}
         </li>
       </ul>
     </div>

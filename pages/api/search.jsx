@@ -7,20 +7,19 @@ const search = async (req, res) => {
   const mapbox = await fetch(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(
       loc
-    )}.json?access_token=${process.env.MAPBOX_API}`
+    )}.json?autocomplete=true&access_token=${process.env.MAPBOX_API}`
   );
   const mapboxJson = await mapbox.json();
 
   const coordinates = {
-    center: {
-      lon: mapboxJson.features[0].center[0],
-      lat: mapboxJson.features[0].center[1],
-    },
+    lon: mapboxJson.features[0].geometry.coordinates[0],
+    lat: mapboxJson.features[0].geometry.coordinates[1],
+    place: mapboxJson.features[0].place_name,
   };
 
   //get current and daily (7day) forecast from openWeather api
   const fetchWeather = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.center.lat}&lon=${coordinates.center.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
   );
   const openWeather = await fetchWeather.json();
 
@@ -29,11 +28,11 @@ const search = async (req, res) => {
     `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_UNSPLASH}&count=1&query=${openWeather.current.weather.description}+${loc}`
   );
   const unsplash = await fetchPhoto.json();
-  console.log("unsplash", unsplash);
-  // console.log("UNSPLASH", unsplash.results.description);
+
   //create collective data object to be sent to frontend
   const data = {
     unsplash: unsplash[0].urls.small,
+    coord: coordinates,
     desc: openWeather.current.weather[0].description,
     main: openWeather.current.weather[0].main,
     name: openWeather.timezone,
@@ -52,8 +51,6 @@ const search = async (req, res) => {
       };
     }),
   };
-
-  console.log("DATA", data);
   res.send(data);
 };
 

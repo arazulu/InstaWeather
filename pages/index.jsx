@@ -26,7 +26,6 @@ const Home = ({ data }) => {
   //API request for weather temp data
   const getData = (e) => {
     e.preventDefault();
-    console.log("in getData");
     if (cityOrZip === "") return setAlert(true);
 
     let body = JSON.stringify({ cityOrZip });
@@ -49,9 +48,10 @@ const Home = ({ data }) => {
 
   //ONCHAGE TEMP SWITCH
   const onToggle = (event) => {
-    let setChecked = !degree.celsius;
-
-    // degree.celsius === false ? (setChecked = true) : (setChecked = false);
+    let setChecked;
+    event.target.value === "celsius"
+      ? (setChecked = true)
+      : (setChecked = false);
 
     getDegreeType({ celsius: setChecked });
   };
@@ -61,12 +61,21 @@ const Home = ({ data }) => {
       <Head>
         <title>Instaweather: a realtime weather lookup app</title>
         <link rel="icon" href="/images/favicon.ico" />
+        <link
+          href="https://www.mapbox.com/base/latest/base.css"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
         <h1 className="title">InstaWeather</h1>
         <h2>Up To Date Weather Conditions & Forecasts</h2>
-        <Form onChangeText={onChangeText} getData={getData} />
+        <Form
+          onChangeText={onChangeText}
+          getData={getData}
+          degree={degree}
+          onToggle={onToggle}
+        />
         {alert ? (
           <Alert variant="highlight" mb={2}>
             Please enter a valid zip code or city name
@@ -77,6 +86,7 @@ const Home = ({ data }) => {
         )}
         {weatherData.name ? (
           <TempDesc
+            loc={weatherData.coord}
             name={weatherData.name}
             main={weatherData.main}
             pic={weatherData.unsplash}
