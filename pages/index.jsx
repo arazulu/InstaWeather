@@ -19,9 +19,7 @@ const Home = ({ data }) => {
   //ONCHANGE CITY/ZIP TEXTFIELD
   const onChangeText = (event) => {
     setCityOrZip(event.target.value);
-    console.log("cityorzip", cityOrZip);
   };
-  console.log("weatherData", weatherData);
 
   //API request for weather temp data
   const getData = (e) => {
@@ -67,7 +65,7 @@ const Home = ({ data }) => {
         />
       </Head>
 
-      <main>
+      <main sx={{ variant: "body" }}>
         <h1 className="title">InstaWeather</h1>
         <h2>Up To Date Weather Conditions & Forecasts</h2>
         <Form

@@ -3,10 +3,14 @@ import { jsx } from "theme-ui";
 import { Field, Button, Radio, Label } from "theme-ui";
 
 const Form = ({ onChangeText, getData, onToggle }) => {
-  console.log("Radio", Radio);
   return (
     <section sx={{ display: "flex" }}>
-      <Field type="text" placeholder="enter address" onChange={onChangeText} />
+      <Field
+        name="address"
+        type="text"
+        placeholder="enter address"
+        onChange={onChangeText}
+      />
       <Button type="submit" onClick={getData}>
         Submit
       </Button>

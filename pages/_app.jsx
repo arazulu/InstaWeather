@@ -9,7 +9,7 @@ library.add(fas);
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 };
