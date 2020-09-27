@@ -65,7 +65,7 @@ const Home = ({ data }) => {
         />
       </Head>
 
-      <main sx={{ variant: "body" }}>
+      <main>
         <h1 className="title">InstaWeather</h1>
         <h2>Up To Date Weather Conditions & Forecasts</h2>
         <Form
@@ -82,20 +82,19 @@ const Home = ({ data }) => {
         ) : (
           ""
         )}
+
         {weatherData.name ? (
-          <TempDesc
-            loc={weatherData.coord}
-            name={weatherData.name}
-            main={weatherData.main}
-            pic={weatherData.unsplash}
-            curr={weatherData.curr}
-            desc={weatherData.desc}
-            degree={degree}
-          />
+          <TempDesc data={weatherData} degree={degree} />
         ) : (
           ""
         )}
-        <section sx={{ display: "flex" }}>
+        <section
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            margin: "10%",
+          }}
+        >
           {weatherData.name
             ? weatherData.days.map((curr, idx) => {
                 return <TempCard key={idx} temp={curr} degree={degree} />;
@@ -121,6 +120,7 @@ const Home = ({ data }) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
         }
         a {
           color: inherit;
@@ -171,7 +171,7 @@ const Home = ({ data }) => {
         }
       `}</style>
 
-      <style jsx global>{`
+      {/* <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -184,7 +184,7 @@ const Home = ({ data }) => {
         * {
           box-sizing: border-box;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };
