@@ -13,15 +13,20 @@ const theme = {
     gridTemplateColumns: "auto",
     justifyItems: "center",
     alignItems: "center",
-    height: "100vh",
+    minHeight: "100vh",
+    height: "auto",
   },
   titleContainer: {
+    marginTop: "3em",
+    padding: "1em",
     background: "#fff",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     backgroundColor: "#fff",
     backgroundImage: "#fff",
+    boxShadow:
+      "0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12)",
     borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
     animation: "blob 8s ease-in-out infinite",
     transition: "all 1s ease-in-out",
@@ -30,15 +35,12 @@ const theme = {
     "@keyframes blob": {
       "0%": {
         borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-        // background: "linear-gradient(65deg, #fff 0%, #9face6 100%)",
       },
       "50%": {
         borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
-        // background: "linear-gradient(65deg, #fff 0%, #9face6 100%)",
       },
       "100%": {
         borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-        // background: "linear-gradient(65deg, #fff 0%, #9face6 100%)",
       },
     },
   },
@@ -71,6 +73,22 @@ const theme = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+  },
+  switch: {
+    position: "fixed",
+    left: "auto",
+    top: "50vh",
+    children: {
+      padding: "1em",
+      marginBottom: "1em",
+      color: "#fff",
+      fontWeight: "bold",
+      backgroundImage:
+        "linear-gradient( -45deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7%)",
+      borderRadius: "5px",
+      boxShadow:
+        "0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12)",
+    },
   },
   footer: {
     display: "flex",
