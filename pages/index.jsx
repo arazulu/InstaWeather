@@ -1,27 +1,34 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Alert, Close } from "theme-ui";
 import Head from "next/head";
+
 import Form from "../components/Form";
 import TempCard from "../components/TempCard";
-import TempDesc from "../components/TempDesc";
+import MainDesc from "../components/MainDesc";
 import fetch from "isomorphic-unfetch";
+
+//  (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
 
 const Home = ({ data }) => {
   const [cityOrZip, setCityOrZip] = useState("");
   const [weatherData, getWeatherData] = useState({});
-  const [degree, getDegreeType] = useState({
-    celsius: true,
-  });
+  const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState(false);
 
-  //ONCHANGE CITY/ZIP TEXTFIELD
+  const useEffect =
+    (() => {
+      sessionStorage.setItem("state", JSON.stringify(weatherData));
+    },
+    [weatherData]);
+
+  //ONCHANGE CITY/ZIP/ADDRESS TEXTFIELD
   const onChangeText = (event) => {
     setCityOrZip(event.target.value);
   };
 
-  //API request for weather temp data
+  //API REQUEST FOR WEATHER MAP PIC DATA
   const getData = (e) => {
     e.preventDefault();
     if (cityOrZip === "") return setAlert(true);
@@ -44,7 +51,7 @@ const Home = ({ data }) => {
       });
   };
 
-  //ONCHAGE TEMP SWITCH
+  //ONCHAGE TEMP DEGREE SWITCH
   const onToggle = (event) => {
     let setChecked;
     event.target.value === "celsius"
@@ -55,137 +62,89 @@ const Home = ({ data }) => {
   };
 
   return (
-    <div className="container">
+    <>
       <Head>
         <title>Instaweather: a realtime weather lookup app</title>
-        <link rel="icon" href="/images/favicon.ico" />
+        <link rel="icon" href="/images/sun.png" />
         <link
           href="https://www.mapbox.com/base/latest/base.css"
           rel="stylesheet"
         />
       </Head>
 
-      <main>
-        <h1 className="title">InstaWeather</h1>
-        <h2>Up To Date Weather Conditions & Forecasts</h2>
-        <Form
-          onChangeText={onChangeText}
-          getData={getData}
-          degree={degree}
-          onToggle={onToggle}
-        />
-        {alert ? (
-          <Alert variant="highlight" mb={2}>
-            Please enter a valid zip code or city name
-            <Close ml="auto" mr={-2} />
-          </Alert>
-        ) : (
-          ""
-        )}
-
-        {weatherData.name ? (
-          <TempDesc data={weatherData} degree={degree} />
-        ) : (
-          ""
-        )}
-        <section
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            margin: "10%",
-          }}
-        >
-          {weatherData.name
-            ? weatherData.days.map((curr, idx) => {
-                return <TempCard key={idx} temp={curr} degree={degree} />;
-              })
-            : ""}
-        </section>
-      </main>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-        }
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      {/* <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style> */}
-    </div>
+      <div sx={{ variant: "body" }}>
+        <header>
+          <div sx={{ variant: "titleContainer" }}>
+            {/* <div sx={{ variant: "shape" }}></div> */}
+            <h1
+              sx={{
+                variant: "h",
+                fontSize: 8,
+              }}
+            >
+              InstaWeather
+            </h1>
+            <h2 sx={{ variant: "h", fontSize: 5 }}>
+              Weather Conditions & Forecasts <span>&#9925;</span>
+            </h2>
+          </div>
+          <Form
+            onChangeText={onChangeText}
+            getData={getData}
+            degree={degree}
+            onToggle={onToggle}
+          />
+          {alert ? (
+            <Alert variant="highlight" mb={2}>
+              Please enter a valid zip code or city name
+              <Close ml="auto" mr={-2} />
+            </Alert>
+          ) : (
+            ""
+          )}
+        </header>
+        <main sx={{ variant: "main" }}>
+          <div role="primary">
+            {weatherData.name ? (
+              <MainDesc data={weatherData} degree={degree} />
+            ) : (
+              ""
+            )}
+          </div>
+          <div
+            role="secondary"
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              margin: "10%",
+            }}
+          >
+            {weatherData.name
+              ? weatherData.days.map((curr, idx) => {
+                  return <TempCard key={idx} temp={curr} degree={degree} />;
+                })
+              : ""}
+          </div>
+        </main>
+        <footer sx={{ variant: "footer" }}>
+          Icons made by
+          <a href="https://fontawesome.com/how-to-use/on-the-web/using-with/react">
+            fontAwesome
+          </a>
+          and
+          <a
+            href="https://www.flaticon.com/authors/good-ware"
+            title="Good Ware"
+          >
+            Good Ware
+          </a>
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </footer>
+      </div>
+    </>
   );
 };
 

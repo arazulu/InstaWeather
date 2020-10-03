@@ -1,13 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getWeatherIcon } from "../helper.js";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getWeatherIcon } from "../helper.js";
 
-const TempDesc = ({ name, main, pic, loc, curr, desc, degree, data }) => {
+const MainDesc = ({ degree, data }) => {
   return (
-    <div className="card" sx={{ variant: "containers.card" }}>
+    <div sx={{ variant: "card" }}>
       <section>
-        {/* <h1>{loc.place}</h1> */}
         <h1>{data.coord.place}</h1>
         <h3>Timezone: {data.name}</h3>
         <img
@@ -36,4 +35,4 @@ const TempDesc = ({ name, main, pic, loc, curr, desc, degree, data }) => {
   );
 };
 
-export default TempDesc;
+export default MainDesc;

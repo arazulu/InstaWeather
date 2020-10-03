@@ -5,7 +5,7 @@ import { getWeatherIcon } from "../helper.js";
 
 const TempCard = ({ temp, degree }) => {
   return (
-    <div className="card" sx={{ variant: "containers.card" }}>
+    <div sx={{ variant: "card" }}>
       <h3>{temp.date}</h3>
       <h1>
         {temp.temp} &#176;{degree.celsius ? "C" : "F"}

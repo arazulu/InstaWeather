@@ -4,14 +4,15 @@ import { Field, Button, Radio, Label } from "theme-ui";
 
 const Form = ({ onChangeText, getData, onToggle }) => {
   return (
-    <section sx={{ display: "flex" }}>
+    <section sx={{ variant: "form" }}>
       <Field
         name="address"
         type="text"
         placeholder="enter address"
         onChange={onChangeText}
+        sx={{ variant: "form.children" }}
       />
-      <Button type="submit" onClick={getData}>
+      <Button type="submit" onClick={getData} sx={{ variant: "form.children" }}>
         Submit
       </Button>
       <div>
