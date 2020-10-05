@@ -6,31 +6,41 @@ const convertToMMDD = (dt) => {
   return `${month}/${day}`;
 };
 
-//take main weather condition and picks the correct corresponding fontAwesomeIcon;
+//take main weather condition and picks the correct corresponding fontAwesomeIcon and background Color;
 export const getWeatherIcon = (weatherCondition) => {
   const condition = weatherCondition.toLowerCase();
-  let result;
+  let result = {
+    icon: [],
+    bgColor: "",
+  };
   switch (condition) {
     case "clouds":
-      result = ["fas", "cloud"];
+      result.icon = ["fas", "cloud"];
+      result.bgColor = "#a8d0db";
       break;
     case "clear":
-      result = ["fas", "sun"];
+      result.icon = ["fas", "sun"];
+      result.bgColor = "#89a6fb"; //"#64dfdf";
       break;
     case "snow":
-      result = ["fas", "snowflake"];
+      result.icon = ["fas", "snowflake"];
+      result.bgColor = "#caf0f8";
       break;
     case "rain":
-      result = ["fas", "cloud-showers-heavy"];
+      result.icon = ["fas", "cloud-showers-heavy"];
+      result.bgColor = "#0077b6";
       break;
     case "drizzle":
-      result = ["fas", "cloud-rain"];
+      result.icon = ["fas", "cloud-rain"];
+      result.bgColor = "#63a4ff";
       break;
     case "thunderstorm":
-      result = ["fas", "bolt"];
+      result.icon = ["fas", "bolt"];
+      result.bgColor = "#f5cc00";
       break;
     default:
-      result = ["fas", "smog"];
+      result.icon = ["fas", "smog"];
+      result.bgColor = "#8A96A8";
       break;
   }
   return result;

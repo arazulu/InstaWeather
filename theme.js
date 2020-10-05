@@ -101,10 +101,11 @@ const theme = {
     justifyContent: "center",
   },
   card: {
-    WebkitBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
-    MozBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
-    boxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
-    borderRight: "4px inset rgb(255,255,255,0.15)",
+    // WebkitBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    // MozBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    // boxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
+    // borderRight: "4px inset rgb(255,255,255,0.15)",
     borderRadius: "8px",
     p: 5, //padding = p
     backgroundColor: "rgb(255,255,255,.1)",
@@ -123,18 +124,3 @@ const theme = {
 
 console.log("future", future);
 export default theme;
-
-// background-color: #fbb034;
-// background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);  -> yellow gradient
-
-// background-color: #ffffff;
-// background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%); -> white/gray gradient
-
-// background-color #9921e8;
-// background-image linear-gradient(315deg, #9921e8 0%, #5f72be 74%); -> purple gradient
-
-//  .btn-grad:hover {
-//    background-position: right center; /* change the direction of the change here */
-//    color: #fff;
-//    text-decoration: none;
-//  }

@@ -4,17 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getWeatherIcon } from "../helper.js";
 
 const TempCard = ({ temp, degree }) => {
+  const colorsTemplate = getWeatherIcon(temp.main);
+
   return (
-    <div sx={{ variant: "card" }}>
+    <div
+      sx={{
+        variant: "card",
+        backgroundColor: colorsTemplate.bgColor,
+      }}
+    >
       <h3>{temp.date}</h3>
       <h1>
         {temp.temp} &#176;{degree.celsius ? "C" : "F"}
       </h1>
-      <FontAwesomeIcon
-        icon={getWeatherIcon(temp.main)}
-        size="xs"
-        color="#fff"
-      />
+      <FontAwesomeIcon icon={colorsTemplate.icon} size="xs" color="#fff" />
 
       <div>
         <h3>{temp.desc}</h3>

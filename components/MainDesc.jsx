@@ -4,8 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getWeatherIcon } from "../helper.js";
 
 const MainDesc = ({ degree, data }) => {
+  const colorsTemplate = getWeatherIcon(data.main);
+
   return (
-    <div sx={{ variant: "card" }}>
+    <div
+      sx={{
+        variant: "card",
+        backgroundColor: colorsTemplate.bgColor,
+      }}
+    >
       <section sx={{ position: "relative" }}>
         <img
           alt={data.desc}
@@ -24,7 +31,7 @@ const MainDesc = ({ degree, data }) => {
       <h3>Timezone: {data.name}</h3>
       <h3>Current</h3>
       <FontAwesomeIcon
-        icon={getWeatherIcon(data.main)}
+        icon={colorsTemplate.icon}
         size="xs"
         color="#fff"
         sx={{ height: "10em" }}
