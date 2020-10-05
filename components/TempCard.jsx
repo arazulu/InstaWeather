@@ -13,23 +13,24 @@ const TempCard = ({ temp, degree }) => {
       <FontAwesomeIcon
         icon={getWeatherIcon(temp.main)}
         size="xs"
-        color="#333333"
+        color="#fff"
       />
-      <ul>
-        <li>{temp.desc}</li>
-        <li>
+
+      <div>
+        <h3>{temp.desc}</h3>
+        <div>
           Min:{" "}
           {degree.celsius
             ? `${temp.min} ºC`
             : `${parseInt(temp.min * 1.8 + 32)} ºF`}
-        </li>
-        <li>
+        </div>
+        <div>
           Max:{" "}
           {degree.celsius
             ? `${temp.max} ºC`
             : `${parseInt(temp.max * 1.8 + 32)} ºF`}
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 };

@@ -8,7 +8,6 @@ const convertToMMDD = (dt) => {
 
 //take main weather condition and picks the correct corresponding fontAwesomeIcon;
 export const getWeatherIcon = (weatherCondition) => {
-  console.log("in getWeatherIcon");
   const condition = weatherCondition.toLowerCase();
   let result;
   switch (condition) {

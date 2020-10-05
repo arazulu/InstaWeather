@@ -10,12 +10,12 @@ const Header = ({ onChangeText, getData, alert }) => {
         <h1
           sx={{
             variant: "h",
-            fontSize: 8,
+            fontSize: [6, 7, 8],
           }}
         >
           InstaWeather
         </h1>
-        <h2 sx={{ variant: "h", fontSize: 5 }}>
+        <h2 sx={{ variant: "h", fontSize: [3, 5, 5] }}>
           Weather Conditions & Forecasts <span>&#9925;</span>
         </h2>
       </div>

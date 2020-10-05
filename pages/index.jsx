@@ -17,6 +17,7 @@ const Home = ({ data }) => {
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState(false);
 
+  // persist data with session storage
   useEffect(() => {
     sessionStorage.setItem("state", JSON.stringify(weatherData));
   }, [weatherData]);
@@ -26,10 +27,13 @@ const Home = ({ data }) => {
     setCityOrZip(event.target.value);
   };
 
-  //API REQUEST FOR WEATHER MAP PIC DATA
+  //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
     e.preventDefault();
     if (cityOrZip === "") return setAlert(true);
+    if (cityOrZip !== "") {
+      setAlert(false);
+    }
 
     fetch("/api/search", {
       method: "POST",
@@ -73,12 +77,12 @@ const Home = ({ data }) => {
         <Switch onToggle={onToggle} />
         <Header onChangeText={onChangeText} getData={getData} alert={alert} />
         <main sx={{ variant: "main" }}>
-          <div role="primary">
+          <div role="primary" sx={{ variant: "primary" }}>
             {weatherData.name && (
               <MainDesc data={weatherData} degree={degree} />
             )}
           </div>
-          <div role="secondary">
+          <div role="secondary" sx={{ variant: "secondary" }}>
             {weatherData.name &&
               weatherData.days.map((curr, idx) => {
                 return <TempCard key={idx} temp={curr} degree={degree} />;

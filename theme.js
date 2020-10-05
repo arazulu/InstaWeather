@@ -3,6 +3,11 @@ import { Flex } from "theme-ui";
 
 const theme = {
   ...future,
+  breakpoints: ["800px", "1500px", "2560px"],
+  colors: {
+    ...future.colors,
+    primary: "#9921e8",
+  },
   body: {
     padding: "0 0.5rem",
     backgroundImage:
@@ -14,11 +19,13 @@ const theme = {
     justifyItems: "center",
     alignItems: "center",
     minHeight: "100vh",
+    minWidth: "100vw",
     height: "auto",
+    width: "fit-content",
   },
   titleContainer: {
     marginTop: "3em",
-    padding: "1em",
+    padding: "3em",
     background: "#fff",
     display: "flex",
     flexDirection: "column",
@@ -30,8 +37,6 @@ const theme = {
     borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
     animation: "blob 8s ease-in-out infinite",
     transition: "all 1s ease-in-out",
-    height: "50vh",
-    width: "50vw",
     "@keyframes blob": {
       "0%": {
         borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
@@ -55,19 +60,20 @@ const theme = {
   },
   main: {
     display: "grid",
+    gridTemplateColumns: "auto auto",
     gridRow: 2 / 3,
   },
-  primary: {
-    gridArea: "1 / 1 / 2/ 2",
-    justifySelf: "center",
-  },
+  primary: {},
   secondary: {
-    gridArea: "2 / 3 / 2/ 3",
-    justifySelf: "center",
+    display: "grid",
+    gridTemplateColumns: "auto auto",
+    gridTemplateRows: "auto auto auto auto",
   },
   form: {
     children: {
       margin: "1em",
+      width: ["25em"],
+      fontWeight: "bold",
     },
     margin: "4em",
     display: "flex",
@@ -76,7 +82,7 @@ const theme = {
   },
   switch: {
     position: "fixed",
-    left: "auto",
+    left: "-10px",
     top: "50vh",
     children: {
       padding: "1em",
@@ -95,13 +101,40 @@ const theme = {
     justifyContent: "center",
   },
   card: {
-    boxShadow: "inset -10px 7px 12px 7px rgba(255,255,255,0.1)",
+    WebkitBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    MozBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    boxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
+    borderRight: "4px inset rgb(255,255,255,0.15)",
     borderRadius: "8px",
-    p: 2,
+    p: 5, //padding = p
     backgroundColor: "rgb(255,255,255,.1)",
     margin: "20px",
+    textImage: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+      textAlign: "left",
+      color: "#fff",
+      fontSize: 6,
+    },
   },
 };
 
 console.log("future", future);
 export default theme;
+
+// background-color: #fbb034;
+// background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);  -> yellow gradient
+
+// background-color: #ffffff;
+// background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%); -> white/gray gradient
+
+// background-color #9921e8;
+// background-image linear-gradient(315deg, #9921e8 0%, #5f72be 74%); -> purple gradient
+
+//  .btn-grad:hover {
+//    background-position: right center; /* change the direction of the change here */
+//    color: #fff;
+//    text-decoration: none;
+//  }

@@ -8,13 +8,19 @@ const Form = ({ onChangeText, getData }) => {
       <Field
         name="address"
         type="text"
-        placeholder="enter address"
+        placeholder="Type address, city, zip code or landmark name"
         onChange={onChangeText}
         sx={{
           variant: "form.children",
         }}
       />
-      <Button type="submit" onClick={getData} sx={{ variant: "form.children" }}>
+      <Button
+        type="submit"
+        onClick={getData}
+        sx={{
+          variant: "form.children",
+        }}
+      >
         Submit
       </Button>
     </section>
