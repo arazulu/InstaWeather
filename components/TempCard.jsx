@@ -14,6 +14,7 @@ const TempCard = ({ temp, degree }) => {
       }}
     >
       <h3>{temp.date}</h3>
+      <h4>{temp.day}</h4>
       <h1>
         {temp.temp} &#176;{degree.celsius ? "C" : "F"}
       </h1>

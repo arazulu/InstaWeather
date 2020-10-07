@@ -1,3 +1,11 @@
+Built with...
+
+REACT, NEXT.JS, THEME-UI and following third-party api's:
+
+- Unsplash - image api: https://unsplash.com/developers
+- Mapbox - Geocoding api: https://docs.mapbox.com/api/search/
+- Openweathermap - OneCall api: https://openweathermap.org/api/one-call-api
+
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
 ## Main styling: Theme-ui

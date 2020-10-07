@@ -27,7 +27,8 @@ const MainDesc = ({ degree, data }) => {
           {data.coord.place}
         </h1>
       </section>
-      <h3>Timezone: {data.name}</h3>
+      <h3>Timezone: {data.name} </h3>
+      <h3>{data.curr.day} </h3>
       <h3>Current</h3>
       <FontAwesomeIcon
         icon={colorsTemplate.icon}

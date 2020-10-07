@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import Form from "./Form";
 import { Alert, Close } from "theme-ui";
 
-const Header = ({ onChangeText, getData, alert }) => {
+const Header = ({ onChangeText, getData, alert, onClose }) => {
   return (
     <header>
       <div sx={{ variant: "titleContainer" }}>
@@ -23,7 +23,12 @@ const Header = ({ onChangeText, getData, alert }) => {
       {alert ? (
         <Alert variant="highlight" mb={2}>
           Please enter a valid zip code or city name
-          <Close ml="auto" mr={-2} />
+          <Close
+            ml="auto"
+            mr={-2}
+            onClick={onClose}
+            sx={{ cursor: "pointer" }}
+          />
         </Alert>
       ) : (
         ""

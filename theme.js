@@ -84,6 +84,7 @@ const theme = {
     justifyContent: "center",
   },
   switch: {
+    zIndex: "10",
     position: "fixed",
     left: "-10px",
     top: "50vh",

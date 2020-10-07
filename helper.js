@@ -1,9 +1,19 @@
-//converts UNIX to UTC and returns only Month/Day
+//converts UNIX to UTC and returns obj of date: Month/Day, day: a week day (ex Tuesday)
 const convertToMMDD = (dt) => {
+  const weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const date = new Date(dt * 1000);
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  return `${month}/${day}`;
+  const dayOfWeek = weekday[date.getDay()];
+  return { date: `${month}/${day}`, day: dayOfWeek };
 };
 
 //take main weather condition and picks the correct corresponding fontAwesomeIcon and background Color;

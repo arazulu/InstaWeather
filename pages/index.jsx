@@ -27,6 +27,8 @@ const Home = ({ data }) => {
     setCityOrZip(event.target.value);
   };
 
+  const onClose = () => setAlert(false);
+
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
     e.preventDefault();
@@ -45,6 +47,7 @@ const Home = ({ data }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("data:", data);
         getWeatherData(data);
       })
       .catch((error) => {
@@ -83,7 +86,12 @@ const Home = ({ data }) => {
 
       <div sx={{ variant: "body" }}>
         <Switch onToggle={onToggle} />
-        <Header onChangeText={onChangeText} getData={getData} alert={alert} />
+        <Header
+          onChangeText={onChangeText}
+          getData={getData}
+          alert={alert}
+          onClose={onClose}
+        />
         <main sx={{ variant: "main" }}>
           <div role="primary" sx={{ variant: "primary" }}>
             {weatherData.name && (
