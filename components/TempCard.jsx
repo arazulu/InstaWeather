@@ -13,15 +13,20 @@ const TempCard = ({ temp, degree }) => {
         backgroundColor: colorsTemplate.bgColor,
       }}
     >
-      <h3>{temp.date}</h3>
-      <h4>{temp.day}</h4>
-      <h1>
+      <h1>{temp.date}</h1>
+      <h2>{temp.day}</h2>
+      <h3>
         {temp.temp} &#176;{degree.celsius ? "C" : "F"}
-      </h1>
+      </h3>
       <FontAwesomeIcon icon={colorsTemplate.icon} size="xs" color="#fff" />
 
       <div>
         <h3>{temp.desc}</h3>
+        <ul>
+          <li>Humidity: {temp.humidity}%</li>
+          <li>UV Index: {temp.uvi}</li>
+          <li>Wind Speed: {temp.wind_speed} metre/sec</li>
+        </ul>
         <div>
           Min:{" "}
           {degree.celsius

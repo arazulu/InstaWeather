@@ -22,7 +22,7 @@ const search = async (req, res) => {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
   );
   const openWeather = await fetchWeather.json();
-  // console.log("openWeather,", openWeather);
+  console.log("openWeather,", openWeather);
 
   //get associated temp description photo from Unsplash
   const fetchPhoto = await fetch(
@@ -42,6 +42,9 @@ const search = async (req, res) => {
       date: mmDDAndCurrDay.date,
       day: mmDDAndCurrDay.day,
       temp: parseInt(openWeather.current.temp - 273.15), //change to celsius
+      humidity: openWeather.current.humidity,
+      uvi: openWeather.current.uvi,
+      wind_speed: openWeather.current.wind_speed,
     },
     days: openWeather.daily.map((curr) => {
       const mmDDAndDay = convertToMMDD(curr.dt);
@@ -53,6 +56,9 @@ const search = async (req, res) => {
         max: parseInt(curr.temp.max - 273.15),
         desc: curr.weather[0].description,
         main: curr.weather[0].main,
+        humidity: curr.humidity,
+        uvi: curr.uvi,
+        wind_speed: curr.wind_speed,
       };
     }),
   };

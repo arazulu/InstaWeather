@@ -23,13 +23,23 @@ const MainDesc = ({ degree, data }) => {
             WebkitFilter: "contrast(40%)",
           }}
         ></img>
-        <h1 sx={{ variant: "card.textImage", fontSize: [5] }}>
+        <h1
+          sx={{
+            variant: "card.textImage",
+            fontSize: [5],
+          }}
+        >
           {data.coord.place}
         </h1>
       </section>
-      <h3>Timezone: {data.name} </h3>
+      <h2>Timezone: {data.name} </h2>
       <h3>{data.curr.day} </h3>
-      <h3>Current</h3>
+      <h4>Current</h4>
+      <ul>
+        <li>Humidity: {data.curr.humidity}%</li>
+        <li>UV Index: {data.curr.uvi}</li>
+        <li>Wind Speed: {data.curr.wind_speed} metre/sec</li>
+      </ul>
       <FontAwesomeIcon
         icon={colorsTemplate.icon}
         size="xs"
