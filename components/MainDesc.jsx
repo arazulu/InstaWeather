@@ -11,6 +11,7 @@ const MainDesc = ({ degree, data }) => {
       sx={{
         variant: "card",
         backgroundColor: colorsTemplate.bgColor,
+        display: "flex",
       }}
     >
       <section sx={{ position: "relative" }}>
@@ -20,8 +21,6 @@ const MainDesc = ({ degree, data }) => {
           sx={{
             filter: "contrast(40%)",
             WebkitFilter: "contrast(40%)",
-            height: "20em",
-            width: "20em",
           }}
         ></img>
         <h1 sx={{ variant: "card.textImage", fontSize: [5] }}>

@@ -48,7 +48,7 @@ const Home = ({ data }) => {
         getWeatherData(data);
       })
       .catch((error) => {
-        console.log("error in fetch req:", error);
+        // console.log("error in fetch req:", error);
       });
   };
 
@@ -65,12 +65,20 @@ const Home = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Instaweather: a realtime weather lookup app</title>
-        <link rel="icon" href="/images/sun.png" />
-        <link
-          href="https://www.mapbox.com/base/latest/base.css"
-          rel="stylesheet"
+        <title>Instaweather</title>
+        <meta
+          name="Description"
+          content="A realtime weather conditions and forecast lookup application, current, 7-day forecast"
+        ></meta>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        <link rel="icon" href="/images/sun.png" />
+        {/* <link
+          href="https://www.mapbox.com/base/latest/base.css&display=swap"
+          rel="stylesheet"
+        /> */}
       </Head>
 
       <div sx={{ variant: "body" }}>

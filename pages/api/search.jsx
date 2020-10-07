@@ -25,13 +25,14 @@ const search = async (req, res) => {
 
   //get associated temp description photo from Unsplash
   const fetchPhoto = await fetch(
-    `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_UNSPLASH}&count=1&query=${openWeather.current.weather.description}+${loc}`
+    `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_UNSPLASH}&count=1&query=${openWeather.current.weather.description}+${loc}&fit=fill&fill=blur&w=500&h=300`
   );
   const unsplash = await fetchPhoto.json();
+  console.log("unsplash,", unsplash);
 
   //create collective data object to be sent to frontend
   const data = {
-    unsplash: unsplash[0].urls.small,
+    unsplash: unsplash[0].urls.custom,
     coord: coordinates,
     desc: openWeather.current.weather[0].description,
     main: openWeather.current.weather[0].main,

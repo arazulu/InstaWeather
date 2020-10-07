@@ -59,15 +59,18 @@ const theme = {
     alignSelf: "center",
   },
   main: {
-    display: "grid",
-    gridTemplateColumns: "auto auto",
-    gridRow: 2 / 3,
+    // display: "grid",
+    // gridTemplateColumns: "auto auto",
+    // gridRow: 2 / 3,
+    display: "flex",
+    flexDirection: "column",
   },
-  primary: {},
+  primary: { display: "flex", flexDirection: "column" },
   secondary: {
+    // display: "flex",
     display: "grid",
-    gridTemplateColumns: "auto auto",
-    gridTemplateRows: "auto auto auto auto",
+    gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
+    gridTemplateRows: ["1fr 1fr 1fr 1fr", "1fr 1fr", "1fr 1fr"],
   },
   form: {
     children: {
@@ -121,6 +124,6 @@ const theme = {
     },
   },
 };
+console.log("FUTURE:", future);
 
-console.log("future", future);
 export default theme;

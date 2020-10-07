@@ -19,6 +19,7 @@ const Form = ({ onChangeText, getData }) => {
         onClick={getData}
         sx={{
           variant: "form.children",
+          cursor: "pointer",
         }}
       >
         Submit
