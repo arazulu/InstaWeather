@@ -22,7 +22,6 @@ const search = async (req, res) => {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
   );
   const openWeather = await fetchWeather.json();
-  console.log("openWeather,", openWeather);
 
   //get associated temp description photo from Unsplash
   const fetchPhoto = await fetch(

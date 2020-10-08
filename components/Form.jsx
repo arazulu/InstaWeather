@@ -4,27 +4,31 @@ import { Field, Button } from "theme-ui";
 
 const Form = ({ onChangeText, getData }) => {
   return (
-    <section sx={{ variant: "form" }}>
+    <form sx={{ variant: "form" }}>
       <Field
         name="address"
         type="text"
+        label="input box for search query"
         placeholder="Type address, city, zip code or landmark name"
         onChange={onChangeText}
         sx={{
           variant: "form.children",
         }}
       />
-      <Button
-        type="submit"
-        onClick={getData}
-        sx={{
-          variant: "form.children",
-          cursor: "pointer",
-        }}
-      >
-        Submit
-      </Button>
-    </section>
+      <label>
+        Submit Query
+        <Button
+          type="submit"
+          onClick={getData}
+          sx={{
+            variant: "form.children",
+            cursor: "pointer",
+          }}
+        >
+          Submit
+        </Button>
+      </label>
+    </form>
   );
 };
 

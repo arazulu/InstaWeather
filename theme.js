@@ -1,5 +1,5 @@
+import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 import { future } from "@theme-ui/presets";
-import { Flex } from "theme-ui";
 
 const theme = {
   ...future,
@@ -7,12 +7,21 @@ const theme = {
   colors: {
     ...future.colors,
     primary: "#9921e8",
-    text: "#3D3D3D",
+    dark: "#3D3D3D",
+    text: "#fff",
   },
-  body: {
+  styles: {
+    ...future.styles,
+    spinner: {
+      color: "primary",
+      height: "10%",
+      width: "10%",
+    },
+  },
+  page: {
     padding: "0 0.5rem",
-    backgroundImage:
-      "linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7%)",
+    // backgroundImage:
+    //   "linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7%)",
     padding: "0",
     margin: "0",
     display: "grid",
@@ -51,8 +60,9 @@ const theme = {
     },
   },
   h: {
-    backgroundImage:
-      "linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7% )",
+    // backgroundImage:
+    //   "linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7% )",
+    backgroundColor: "primary",
     backgroundClip: "text",
     WebkitTextFillColor: "transparent",
     WebkitBackgroundClip: "text",
@@ -63,6 +73,7 @@ const theme = {
     // display: "grid",
     // gridTemplateColumns: "auto auto",
     // gridRow: 2 / 3,
+    maxWidth: "65%",
     display: "flex",
     flexDirection: "column",
   },
@@ -94,14 +105,12 @@ const theme = {
       marginBottom: "1em",
       color: "#fff",
       fontWeight: "bold",
-      backgroundImage:
-        "linear-gradient( -45deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7%)",
+      backgroundColor: "primary",
+      // backgroundImage:
+      //   "linear-gradient( -45deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7%)",
       borderRadius: "5px",
       boxShadow:
         "0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12)",
-      "&:hover": {
-        color: "primary",
-      },
     },
   },
   footer: {
@@ -109,15 +118,21 @@ const theme = {
     justifyContent: "center",
   },
   card: {
-    // WebkitBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
-    // MozBoxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
-    // boxShadow: "0px 0px 8px 3px rgba(0,0,0,0.36)",
     boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
     // borderRight: "4px inset rgb(255,255,255,0.15)",
+    // boxShadow:
+    //   "5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22)",
+    transition: "0.4s",
+    "&:hover": {
+      transform: "scale(1.1, 1.1)",
+      boxShadow:
+        "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
+    },
     borderRadius: "8px",
     p: 3, //padding = p
     backgroundColor: "rgb(255,255,255,.1)",
     margin: "20px",
+    textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {
       position: "absolute",
       top: "50%",
@@ -129,6 +144,10 @@ const theme = {
     },
     svg: {
       maxHeight: "10em",
+    },
+    li: {
+      fontWeight: "bold",
+      listStyleType: "none",
     },
   },
 };

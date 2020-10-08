@@ -1,19 +1,20 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
+import { Spinner } from "theme-ui";
 import Head from "next/head";
 import Header from "../components/Header";
+import Main from "../components/Main";
 import Switch from "../components/Switch";
-import TempCard from "../components/TempCard";
-import MainDesc from "../components/MainDesc";
 import Footer from "../components/Footer";
 import fetch from "isomorphic-unfetch";
 
 const Home = ({ data }) => {
-  const [cityOrZip, setCityOrZip] = useState("");
+  // const [] =useState(process.browser && window !==undefined)
   const [weatherData, getWeatherData] = useState(
     (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
   );
+  const [cityOrZip, setCityOrZip] = useState("");
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState(false);
 
@@ -84,28 +85,16 @@ const Home = ({ data }) => {
         /> */}
       </Head>
 
-      <div sx={{ variant: "body" }}>
-        <Switch onToggle={onToggle} />
+      <div sx={{ variant: "page" }}>
         <Header
           onChangeText={onChangeText}
           getData={getData}
           alert={alert}
           onClose={onClose}
         />
-        <main sx={{ variant: "main" }}>
-          <div role="primary" sx={{ variant: "primary" }}>
-            {weatherData.name && (
-              <MainDesc data={weatherData} degree={degree} />
-            )}
-          </div>
-          <div role="secondary" sx={{ variant: "secondary" }}>
-            {weatherData.name &&
-              weatherData.days.map((curr, idx) => {
-                return <TempCard key={idx} temp={curr} degree={degree} />;
-              })}
-          </div>
-        </main>
+        <Main weatherData={weatherData} degree={degree} />
         <Footer />
+        <Switch onToggle={onToggle} />
       </div>
     </>
   );

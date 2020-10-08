@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <footer sx={{ variant: "footer" }}>
       Icons made by
-      <a href="https://fontawesome.com/how-to-use/on-the-web/using-with/react">
+      <a
+        href="https://fontawesome.com/how-to-use/on-the-web/using-with/react"
+        title="font awesome"
+      >
         fontAwesome
       </a>
       and
