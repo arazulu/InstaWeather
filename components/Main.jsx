@@ -34,15 +34,45 @@ const Main = ({ weatherData, degree }) => {
               >
                 <div
                   sx={{
+                    content: "",
+                    backgroundColor: "rgba(150, 32, 198, 0.75)",
+                    height: "11em",
+                    width: "11em",
+                    zIndex: "2",
+                    position: "absolute",
+                    top: "-5em",
+                    left: "-6em",
+                    borderRadius: "25px",
+                    transform: "rotate(-10deg)",
+                  }}
+                ></div>
+                <div
+                  sx={{
+                    content: "",
+                    backgroundColor: "rgba(190,28,65, 0.75)",
+                    height: "11em",
+                    width: "11em",
+                    zIndex: "3",
+                    position: "absolute",
+                    top: "-5em",
+                    left: "-4em",
+                    borderRadius: "25px",
+                    transform: "rotate(10deg)",
+                  }}
+                ></div>
+                <div
+                  sx={{
+                    // display: "block",
                     backgroundColor: colorsTemplate.bgColor,
                     borderRadius: "25px",
                     position: "absolute",
                     p: "1em",
-                    zIndex: "2",
+                    zIndex: "4",
                     top: "-5em",
                     left: "-5em",
                     svg: {
                       height: "9em",
+                      width: "9em",
                     },
                   }}
                 >
