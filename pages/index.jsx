@@ -5,7 +5,6 @@ import { Spinner } from "theme-ui";
 import Head from "next/head";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import Switch from "../components/Switch";
 import Footer from "../components/Footer";
 import fetch from "isomorphic-unfetch";
 
@@ -84,18 +83,15 @@ const Home = ({ data }) => {
           rel="stylesheet"
         /> */}
       </Head>
-
-      <div sx={{ variant: "page" }}>
-        <Header
-          onChangeText={onChangeText}
-          getData={getData}
-          alert={alert}
-          onClose={onClose}
-        />
-        <Main weatherData={weatherData} degree={degree} />
-        <Footer />
-        <Switch onToggle={onToggle} />
-      </div>
+      <Header
+        onChangeText={onChangeText}
+        getData={getData}
+        alert={alert}
+        onClose={onClose}
+        onToggle={onToggle}
+      />
+      <Main weatherData={weatherData} degree={degree} />
+      <Footer />
     </>
   );
 };

@@ -21,7 +21,7 @@ const Main = ({ weatherData, degree }) => {
                 sx={{
                   backgroundColor: "secondary",
                   borderRadius: "25px",
-                  // position: "relative",
+                  position: "relative",
                   boxShadow:
                     "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
                   transition: "0.4s",
@@ -34,14 +34,13 @@ const Main = ({ weatherData, degree }) => {
               >
                 <div
                   sx={{
-                    // backgroundColor: "rgba(37, 172, 162, 0.75)",
                     backgroundColor: colorsTemplate.bgColor,
                     borderRadius: "25px",
-                    // position: "absolute",
+                    position: "absolute",
                     p: "1em",
                     zIndex: "2",
-                    // top: "-5em",
-                    // left: "-5em",
+                    top: "-5em",
+                    left: "-5em",
                     svg: {
                       height: "9em",
                     },

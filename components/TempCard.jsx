@@ -6,7 +6,6 @@ const TempCard = ({ temp, degree }) => {
     <div
       sx={{
         variant: "card",
-        // backgroundColor: colorsTemplate.bgColor,
       }}
     >
       <h1>{temp.date}</h1>
