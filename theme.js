@@ -6,7 +6,7 @@ const theme = {
   colors: {
     ...future.colors,
     primary: "#5F1094", // "#9921e8",
-    // secondary: ,
+    secondary: "#4B3E8E",
     highlight: "none",
     dark: "#3D3D3D",
     text: "#fff",
@@ -80,10 +80,12 @@ const theme = {
   },
   primary: { display: "flex", flexDirection: "column" },
   secondary: {
-    // display: "flex",
     display: "grid",
-    gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
-    gridTemplateRows: ["1fr 1fr 1fr 1fr", "1fr 1fr", "1fr 1fr"],
+    // gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
+    // gridTemplateRows: ["1fr 1fr 1fr 1fr", "1fr 1fr", "1fr 1fr"],
+    gridTemplateColumns: ["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"],
+    gridTemplateRows: ["repeat(8,1fr)", "repeat(4, 1fr)", "repeat(4, 1fr)"],
+    gridGap: "10px",
   },
   form: {
     children: {
@@ -126,19 +128,12 @@ const theme = {
     justifyContent: "center",
   },
   card: {
-    boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
     // borderRight: "4px inset rgb(255,255,255,0.15)",
     // boxShadow:
     //   "5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22)",
-    transition: "0.4s",
-    "&:hover": {
-      transform: "scale(1.1, 1.1)",
-      boxShadow:
-        "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
-    },
     borderRadius: "8px",
     p: 3, //padding = p
-    backgroundColor: "rgb(255,255,255,.1)",
+    // backgroundColor: "rgb(255,255,255,.1)",
     margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {

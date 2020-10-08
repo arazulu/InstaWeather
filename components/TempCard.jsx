@@ -1,16 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getWeatherIcon } from "../helper.js";
 
 const TempCard = ({ temp, degree }) => {
-  const colorsTemplate = getWeatherIcon(temp.main);
-
   return (
     <div
       sx={{
         variant: "card",
-        backgroundColor: colorsTemplate.bgColor,
+        // backgroundColor: colorsTemplate.bgColor,
       }}
     >
       <h1>{temp.date}</h1>
@@ -18,7 +14,6 @@ const TempCard = ({ temp, degree }) => {
       <div sx={{ fontSize: 6 }}>
         {temp.temp} &#176;{degree.celsius ? "C" : "F"}
       </div>
-      <FontAwesomeIcon icon={colorsTemplate.icon} size="xs" color="#fff" />
       <div>
         <h3>{temp.desc}</h3>
         <ul>

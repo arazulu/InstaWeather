@@ -18,6 +18,7 @@ const convertToMMDD = (dt) => {
 
 //take main weather condition and picks the correct corresponding fontAwesomeIcon and background Color;
 export const getWeatherIcon = (weatherCondition) => {
+  const transparent = 0.75;
   const condition = weatherCondition.toLowerCase();
   let result = {
     icon: [],
@@ -26,31 +27,31 @@ export const getWeatherIcon = (weatherCondition) => {
   switch (condition) {
     case "clouds":
       result.icon = ["fas", "cloud"];
-      result.bgColor = "#437E8E"; //"#a8d0db"
+      result.bgColor = `rgba(208, 57, 159, ${transparent});`; // magenta // "#437E8E"; //"#a8d0db"
       break;
     case "clear":
       result.icon = ["fas", "sun"];
-      result.bgColor = "#C44593"; //"#64dfdf"
+      result.bgColor = `rgba(233, 124, 32, ${transparent})`; // pumpkin orange // "#C44593"; //"#64dfdf"
       break;
     case "snow":
       result.icon = ["fas", "snowflake"];
-      result.bgColor = "#0074C7"; // "#caf0f8"
+      result.bgColor = `rgba(16, 63, 236,${transparent})`; // bright blue // "#0074C7"; // "#caf0f8"
       break;
     case "rain":
       result.icon = ["fas", "cloud-showers-heavy"];
-      result.bgColor = "#218372"; // "#0077b6"
+      result.bgColor = `rgba(95, 33, 203, ${transparent})`; // royal blue // "#218372"; // "#0077b6"
       break;
     case "drizzle":
       result.icon = ["fas", "cloud-rain"];
-      result.bgColor = "#4B3E8E"; // "#63a4ff"
+      result.bgColor = `rgba(37, 172, 162, ${transparent})`; // sea green: //"#4B3E8E"; // "#63a4ff"
       break;
     case "thunderstorm":
       result.icon = ["fas", "bolt"];
-      result.bgColor = "#647487"; // "#f5cc00"
+      result.bgColor = `rgba(235, 67, 35, ${transparent})`; // mandarin orange // "#647487"// "#f5cc00"
       break;
     default:
       result.icon = ["fas", "smog"];
-      result.bgColor = "#8150AA"; // "#8A96A8"
+      result.bgColor = `rgba(190, 28, 65, ${transparent})`; // deep red // "#8150AA"; // "#8A96A8"
       break;
   }
   return result;
@@ -58,12 +59,4 @@ export const getWeatherIcon = (weatherCondition) => {
 
 export default convertToMMDD;
 
-//transparency 0.75
-// bright blue : rgba(16, 63, 236,0.75)
-// sea green: rgba(37, 172, 162, $transparency);
-// pumpkin orange: rgba(233, 124, 32, $transparency);
-// mandarin orange: rgba(235, 67, 35, $transparency);
-// deep red: rgba(190, 28, 65, $transparency);
-// magenta: rgba(208, 57, 159, $transparency);
 // purple: rgba(150, 32, 198, $transparency);
-// royal blue: rgba(95, 33, 203, $transparency);
