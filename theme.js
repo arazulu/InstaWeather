@@ -1,4 +1,3 @@
-import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 import { future } from "@theme-ui/presets";
 
 const theme = {
@@ -6,7 +5,9 @@ const theme = {
   breakpoints: ["800px", "1500px", "2560px"],
   colors: {
     ...future.colors,
-    primary: "#9921e8",
+    primary: "#5F1094", // "#9921e8",
+    // secondary: ,
+    highlight: "none",
     dark: "#3D3D3D",
     text: "#fff",
   },
@@ -100,6 +101,9 @@ const theme = {
     position: "fixed",
     left: "-10px",
     top: "50vh",
+    path: {
+      color: "#fff",
+    },
     children: {
       padding: "1em",
       marginBottom: "1em",
@@ -111,6 +115,10 @@ const theme = {
       borderRadius: "5px",
       boxShadow:
         "0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12)",
+      "&::selection": {
+        color: "none",
+        background: "none",
+      },
     },
   },
   footer: {
