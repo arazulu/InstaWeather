@@ -56,7 +56,7 @@ const theme = {
   },
   main: {
     margin: "auto",
-    maxWidth: "65%",
+    maxWidth: "70vw",
     display: "flex",
     flexDirection: "column",
   },
@@ -68,11 +68,21 @@ const theme = {
     display: "grid",
     // gridTemplateColumns: ["1fr 1fr", "1fr 1fr 1fr 1fr", "1fr 1fr 1fr 1fr"],
     // gridTemplateRows: ["1fr 1fr 1fr 1fr", "1fr 1fr", "1fr 1fr"],
-    gridTemplateColumns: ["1fr", "repeat(4, 1fr)", "repeat(4, 1fr)"],
-    gridTemplateRows: ["repeat(8,1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)"],
+    gridTemplateColumns: ["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"],
+    gridTemplateRows: ["repeat(8,60vh)", "repeat(4, 60vh)", "repeat(4, 60vh)"],
     gridGap: "10px",
   },
   form: {
+    input: {
+      borderColor: "primary",
+      borderRadius: "0px",
+      borderLeft: "none",
+      borderTop: "none",
+      borderRight: "none",
+      borderBottom: "4px solid",
+      borderColor: "primary",
+      color: "primary",
+    },
     children: {
       margin: "1em",
       width: ["25em"],
@@ -132,15 +142,16 @@ const theme = {
       color: "#fff",
       fontSize: 6,
     },
-    svg: {
-      maxHeight: "10em",
-    },
+    // svg: {
+    //   height: "auto",
+    //   maxHeight: "10em",
+    // },
     li: {
       fontWeight: "bold",
       listStyleType: "none",
     },
   },
 };
-console.log("FUTURE:", future);
+console.log("THEME:", theme);
 
 export default theme;

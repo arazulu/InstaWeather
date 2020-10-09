@@ -83,15 +83,17 @@ const Home = ({ data }) => {
           rel="stylesheet"
         /> */}
       </Head>
-      <Header
-        onChangeText={onChangeText}
-        getData={getData}
-        alert={alert}
-        onClose={onClose}
-        onToggle={onToggle}
-      />
-      <Main weatherData={weatherData} degree={degree} />
-      <Footer />
+      <div sx={{ maxWidth: "100vw" }}>
+        <Header
+          onChangeText={onChangeText}
+          getData={getData}
+          alert={alert}
+          onClose={onClose}
+          onToggle={onToggle}
+        />
+        <Main weatherData={weatherData} degree={degree} />
+        <Footer />
+      </div>
     </>
   );
 };

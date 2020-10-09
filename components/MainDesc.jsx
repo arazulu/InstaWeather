@@ -10,10 +10,21 @@ const MainDesc = ({ degree, data }) => {
     <div
       sx={{
         variant: "card",
+        margin: "5em 0 5em 0",
         backgroundColor: colorsTemplate.bgColor,
         display: "flex",
-        padding: "0px 30px 0px 0px",
         justifyContent: "space-between",
+        boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
+        transition: "0.4s",
+        "&:hover": {
+          transform: "scale(1.1, 1.1)",
+          boxShadow:
+            "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
+        },
+        img: {
+          height: ["120px", "initial", "initial"],
+          width: ["200px", "initial", "initial"],
+        },
       }}
     >
       <section
@@ -29,7 +40,7 @@ const MainDesc = ({ degree, data }) => {
             filter: "contrast(40%)",
             WebkitFilter: "contrast(40%)",
             borderRadius: "8px 0px 0px 8px",
-            height: "100%",
+            // height: "100%",
           }}
         ></img>
         <h1
