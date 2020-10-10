@@ -12,16 +12,13 @@ const TempCard = ({ temp, degree }) => {
         padding: "0",
       }}
     >
-      <div sx={{ display: "flex", justifyContent: "center" }}>
-        <h1>{temp.day}</h1>
-        <h2>{temp.date}</h2>
-      </div>
-      <div sx={{ display: "flex", justifyContent: ["center"] }}>
+      <h1 sx={{alignSelf: "flex-end", paddingRight: "2em"}}>{temp.day} - {temp.date}</h1>
+      <div sx={{ display: "flex", justifyContent: ["center"], alignItems: "flex-end" }}>
         <div sx={{ display: "flex", flexDirection: "column" }}>
-          <div sx={{ fontSize: 6 }}>
+          <h2 sx={{ fontSize: 6, marginBottom: "0em" }}>
             {temp.temp} &#176;{degree.celsius ? "C" : "F"}
-          </div>
-          <h3>{temp.desc}</h3>
+          </h2>
+          <h3 sx={{marginTop: '0em'}}>{temp.desc}</h3>
         </div>
 
         <div>
@@ -40,7 +37,7 @@ const TempCard = ({ temp, degree }) => {
             </li>
             <li>Humidity: {temp.humidity}%</li>
             <li>UV Index: {temp.uvi}</li>
-            <li>Wind Speed: {temp.wind_speed} metre/sec</li>
+            <li>Wind Speed: {temp.wind_speed} m/s</li>
           </ul>
         </div>
       </div>

@@ -32,6 +32,7 @@ const Main = ({ weatherData, degree }) => {
                       "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
                   },
                   margin: ["20px", "40px", "40px"],
+                  alignSelf: "auto"
                 }}
               >
                 <WeatherIcon colorsTemplate={colorsTemplate} />

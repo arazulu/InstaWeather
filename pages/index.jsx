@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
-import { Spinner } from "theme-ui";
 import Head from "next/head";
 import Header from "../components/Header";
 import Main from "../components/Main";
@@ -78,10 +77,6 @@ const Home = ({ data }) => {
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
         <link rel="icon" href="/images/sun.png" />
-        {/* <link
-          href="https://www.mapbox.com/base/latest/base.css&display=swap"
-          rel="stylesheet"
-        /> */}
       </Head>
       <div sx={{ maxWidth: "100vw" }}>
         <Header
