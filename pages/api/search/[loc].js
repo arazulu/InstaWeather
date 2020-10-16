@@ -1,7 +1,7 @@
-import convertToMMDD from "../../helper.js";
+import convertToMMDD from "../../../helper.js";
 
 const search = async (req, res) => {
-  const { loc } = req.body;
+  const { loc } = req.query;
 
   // request lon and lat from mapbox - geocoding api
   const mapbox = await fetch(

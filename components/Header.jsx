@@ -49,9 +49,6 @@ const Header = ({ onChangeText, getData, alert, onClose, onToggle }) => {
           </Alert>}
         <Switch onToggle={onToggle} /></div>
       </div>
-      {/* <div>
-       
-      </div> */}
     </header>
   );
 };

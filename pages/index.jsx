@@ -36,13 +36,13 @@ const Home = ({ data }) => {
       setAlert(false);
     }
 
-    fetch("/api/search", {
-      method: "POST",
+    fetch(`/api/search/${cityOrZip}`, {
+      method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ loc: cityOrZip }),
+      // query: JSON.stringify({ loc: cityOrZip }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -50,7 +50,7 @@ const Home = ({ data }) => {
         getWeatherData(data);
       })
       .catch((error) => {
-        setAlert({isActive: true, message: `${error}: Please Refresh Page`})
+        setAlert({isActive: true, message: `${error} - Please Refresh Page`})
       });
   };
 
