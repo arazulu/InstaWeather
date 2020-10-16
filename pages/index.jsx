@@ -8,13 +8,12 @@ import Footer from "../components/Footer";
 import fetch from "isomorphic-unfetch";
 
 const Home = ({ data }) => {
-  // const [] =useState(process.browser && window !==undefined)
+  const [cityOrZip, setCityOrZip] = useState("");
+  const [degree, getDegreeType] = useState({ celsius: true });
+  const [alert, setAlert] = useState({isActive: false, message: ''});
   const [weatherData, getWeatherData] = useState(
     (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
   );
-  const [cityOrZip, setCityOrZip] = useState("");
-  const [degree, getDegreeType] = useState({ celsius: true });
-  const [alert, setAlert] = useState(false);
 
   // persist data with session storage
   useEffect(() => {
@@ -26,12 +25,13 @@ const Home = ({ data }) => {
     setCityOrZip(event.target.value);
   };
 
-  const onClose = () => setAlert(false);
+  //CLOSE ALERT MESSAGE
+  const onClose = () => setAlert({isActive: false, message: ''});
 
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
     e.preventDefault();
-    if (cityOrZip === "") return setAlert(true);
+    if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid zip code or city name'});
     if (cityOrZip !== "") {
       setAlert(false);
     }
@@ -50,7 +50,7 @@ const Home = ({ data }) => {
         getWeatherData(data);
       })
       .catch((error) => {
-        // console.log("error in fetch req:", error);
+        setAlert({isActive: true, message: `${error}: Please Refresh Page`})
       });
   };
 

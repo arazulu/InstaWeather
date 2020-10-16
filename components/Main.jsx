@@ -35,7 +35,7 @@ const Main = ({ weatherData, degree }) => {
                   alignSelf: "auto"
                 }}
               >
-                <WeatherIcon colorsTemplate={colorsTemplate} />
+                <WeatherIcon colorsTemplate={colorsTemplate}/>
                 <TempCard temp={curr} degree={degree} />
               </div>
             );

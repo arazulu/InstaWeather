@@ -4,7 +4,7 @@ import { Field, Button } from "theme-ui";
 
 const Form = ({ onChangeText, getData }) => {
   return (
-    <form sx={{ variant: "form" }}>
+    <form sx={{ variant: "form", zIndex: 3 }}>
       <Field
         name="address"
         type="text"
@@ -12,7 +12,7 @@ const Form = ({ onChangeText, getData }) => {
         ariaLabel="input box for search query"
         placeholder="type address, city, zip code or landmark name"
         onChange={onChangeText}
-        sx={{ variant: "form.children" }}
+        sx={{ variant: "form.children", "&::placeholder": {color: '#fff'} }}
       />
       <Button
         ariaLabel="Submit search text"
