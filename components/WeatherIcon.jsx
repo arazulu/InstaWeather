@@ -49,7 +49,7 @@ const WeatherIcon = ({ colorsTemplate }) => {
           },
         }}
       >
-        <FontAwesomeIcon icon={colorsTemplate.icon} size="xs" color="#fff" />
+        <FontAwesomeIcon icon={colorsTemplate.icon} size="xs" color="text" />
       </div>
     </>
   );

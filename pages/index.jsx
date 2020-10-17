@@ -11,6 +11,7 @@ const Home = ({ data }) => {
   const [cityOrZip, setCityOrZip] = useState("");
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState({isActive: false, message: ''});
+  const [loading, isLoading] = useState(false);
   const [weatherData, getWeatherData] = useState(
     (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
   );
@@ -31,26 +32,27 @@ const Home = ({ data }) => {
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
     e.preventDefault();
-    if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid zip code or city name'});
+    if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid address'});
     if (cityOrZip !== "") {
       setAlert(false);
     }
-
+    isLoading(true);
     fetch(`/api/search/${cityOrZip}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      // query: JSON.stringify({ loc: cityOrZip }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data:", data);
-        getWeatherData(data);
+        setTimeout(()=>{
+          getWeatherData(data);
+          isLoading(false);
+        },1000);
       })
       .catch((error) => {
-        setAlert({isActive: true, message: `${error} - Please Refresh Page`})
+        setAlert({isActive: true, message: `${error} - Please enter a valid location`})
       });
   };
 
@@ -86,7 +88,7 @@ const Home = ({ data }) => {
           onClose={onClose}
           onToggle={onToggle}
         />
-        <Main weatherData={weatherData} degree={degree} />
+        <Main weatherData={weatherData} degree={degree} loading={loading} />
         <Footer />
       </div>
     </>

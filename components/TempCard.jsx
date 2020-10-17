@@ -5,7 +5,7 @@ const TempCard = ({ temp, degree }) => {
   return (
     <div
       sx={{
-        variant: "card",
+        variant: "tempCard",
         display: "flex",
         flexDirection: "column",
         margin: "0",

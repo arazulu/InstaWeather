@@ -1,41 +1,35 @@
 /** @jsx jsx */
-import { Flex, jsx } from "theme-ui";
+import { jsx } from "theme-ui";
+import { Alert, Close } from "theme-ui";
 import Form from "./Form";
 import Switch from "./Switch";
-import { Alert, Close } from "theme-ui";
 import OrangeBlob from '../public/orangeBlob.svg';
 import RedBlob from '../public/redBlob.svg';
 import PurpleBlob from '../public/purpleBlob.svg';
 
-const Header = ({ onChangeText, getData, alert, onClose, onToggle }) => {
+const Header = ({ onChangeText, getData, alert, onClose, onToggle, loading }) => {
   return (
-    <header
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        position: 'relative'
-      }}
-    >
-      <div sx={{ variant: "title", display: 'flex', alignItems: 'center', zIndex: 1 }}>
-        <PurpleBlob sx={{zIndex: 0,  position:'absolute'}}/>
-        <RedBlob sx={{zIndex: 1,  position:'absolute'}}/>
-        <OrangeBlob sx={{zIndex: 2,  position:'absolute'}}/>
-        <h1 sx={{ variant: "h", fontSize: [6, 7, 8], marginBottom: "0", zIndex: 3, color: "#fff" }}>
+    <header sx={{ variant: "header" }}>
+      <div sx={{position:'relative', width: '100%', height: '100%', zIndex:0}}>
+      <PurpleBlob sx={{variant: 'header.svgBlob', zIndex: 0}}/>
+        <RedBlob sx={{variant: 'header.svgBlob', zIndex: -1 }}/>
+        <OrangeBlob sx={{variant: 'header.svgBlob', zIndex: -2}}/>
+      </div>
+       
+      <h1 sx={{ fontSize: ["7vw","5vw","5vw"] , marginTop: "0.2em", marginBottom: "0", color: "text", zIndex: 1 }}>
           InstaWeather
-        </h1>
-        <h2
+      </h1>
+      <h2
           sx={{
-            variant: "h",
-            fontSize: [3, 5, 5],
+            fontSize: ["3vw","2vw","2vw"],
             marginTop: "0",
-            // bg: "secondary",
-            zIndex: 3,
-            color: "#fff"
+            zIndex: 1,
+            color: "text"
           }}
         >
           Weather Conditions & Forecasts <span>&#9925;</span>
-        </h2>
-       <div sx={{zIndex: 3}}>
+      </h2>
+      <div sx={{zIndex: 3}}>
         <Form onChangeText={onChangeText} getData={getData} />
         {alert.isActive &&
           <Alert variant="highlight" mb={2} >
@@ -47,8 +41,8 @@ const Header = ({ onChangeText, getData, alert, onClose, onToggle }) => {
               sx={{ cursor: "pointer" }}
             />
           </Alert>}
-        <Switch onToggle={onToggle} /></div>
-      </div>
+        <Switch onToggle={onToggle} />
+       </div>
     </header>
   );
 };

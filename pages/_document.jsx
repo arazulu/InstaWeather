@@ -7,7 +7,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body sx={{ backgroundColor: "#fff" }}>
+        <body sx={{ backgroundColor: "text" }}>
           <Main />
           <NextScript />
         </body>
