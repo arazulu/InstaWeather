@@ -39,7 +39,7 @@ const MainDesc = ({ degree, data }) => {
         <h1
           sx={{
             variant: "card.textImage",
-            fontSize: [5],
+            fontSize: [5,6,6],
             zIndex: 2
           }}
         >
@@ -48,7 +48,7 @@ const MainDesc = ({ degree, data }) => {
       <div sx={{zIndex: 2}}>
         <h2>Current</h2>
         <h3>{data.curr.day}</h3>
-        <div sx={{ fontSize: 7 }}>
+        <div sx={{ fontSize: [6,7,7] }}>
           {degree.celsius
             ? `${data.curr.temp} ºC`
             : `${parseInt(data.curr.temp * 1.8 + 32)} ºF`}

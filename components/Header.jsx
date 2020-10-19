@@ -16,12 +16,12 @@ const Header = ({ onChangeText, getData, alert, onClose, onToggle, loading }) =>
         <OrangeBlob sx={{variant: 'header.svgBlob', zIndex: -2}}/>
       </div>
        
-      <h1 sx={{ fontSize: ["7vw","5vw","5vw"] , marginTop: "0.2em", marginBottom: "0", color: "text", zIndex: 1 }}>
+      <h1 sx={{ fontSize: "9vw" , marginTop: "0.2em", marginBottom: "0", color: "text", zIndex: 1 }}>
           InstaWeather
       </h1>
       <h2
           sx={{
-            fontSize: ["3vw","2vw","2vw"],
+            fontSize: "3vw",
             marginTop: "0",
             zIndex: 1,
             color: "text"

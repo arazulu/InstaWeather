@@ -5,6 +5,8 @@ import TempCard from "../components/TempCard";
 import CurrTemp from "./CurrTemp";
 import WeatherIcon from "../components/WeatherIcon";
 import { getWeatherIcon } from "../helper.js";
+
+
 const Main = ({ weatherData, degree, loading}) => {
   return (
     <main sx={{ variant: "main" }}>

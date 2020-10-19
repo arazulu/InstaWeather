@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Background from '../components/Background';
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
@@ -56,7 +57,8 @@ const Home = ({ data }) => {
       });
   };
 
-  //ONCHAGE TEMP DEGREE SWITCH
+
+  //ONCHANGE TEMP DEGREE SWITCH
   const onToggle = (event) => {
     let setChecked;
     event.target.value === "celsius"
@@ -80,7 +82,9 @@ const Home = ({ data }) => {
         />
         <link rel="icon" href="/images/sun.png" />
       </Head>
+    
       <div sx={{ maxWidth: "100vw" }}>
+        <Background weatherData={weatherData}/>
         <Header
           onChangeText={onChangeText}
           getData={getData}

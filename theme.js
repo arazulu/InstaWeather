@@ -11,27 +11,91 @@ const theme = {
     dark: "#3D3D3D",
     text: "#fff",
   },
-  h1: {
-    ...future.styles.h1,
-    fontSize: '1vh',
-  },
-  h2: {
-    ...future.styles.h2,
-    fontSize: '1vh',
-  },
-  h3: {
-    ...future.styles.h3,
-    fontSize: '1vh',
-  },
   styles: {
     ...future.styles,
     spinner: {
-      color: "text",
+      color: "primary",
       height: "10%",
       width: "10%",
       alignSelf: 'center',
       zIndex: 2
     },
+  },
+  bkgd: {
+    overflow: 'hidden',
+    position: 'fixed',
+    backgroundColor: '#4e54c8',
+    zIndex: '-5',
+    top: '0',
+    left: '0',
+    width: '100vw',
+    height: '100vh',
+    opacity: '0.75',
+    icons: {
+      position: 'absolute',
+      display: 'block',
+      width: '10%',
+      height: '10%',
+      animation: 'animate 25s linear infinite',
+      bottom: '-150px',
+    },
+    "svg:nth-child(1)": {
+      left: '15%',
+      width: '15%',
+      height: '15%',
+      animationDelay: '2s',
+      animationDuration: '35s',
+    },
+    "svg:nth-child(2)": {
+      left: '25%',
+      width: '25%',
+      height: '25%',
+      animationDelay: '0s', 
+    },
+    'svg:nth-child(3)':{
+      left: '85%',
+      width: '10%',
+      height: '10%',
+      animationDelay: '2s',
+      animationDuration: '12s',
+    },
+    'svg:nth-child(4)': {
+        left: '70%',
+        width: '15%',
+        height: '15%',
+        animationDelay: '4s',
+    },
+    'svg:nth-child(5)': {
+        left: '40%',
+        width: '15%',
+        height: '15%',
+        animationDelay: '0s',
+        animationDuration: '18s',
+    },
+    'svg:nth-child(6)':{
+        left: '65%',
+        width: '8%',
+        height: '8%',
+        animationDelay: '0s',
+    },
+    "&:nth-child(7)": {
+      left: '75%',
+      width: '110px',
+      height: '110px',
+      animationDelay: '3s',
+    },
+    "@keyframes animate": {
+      '0%': {
+        transform: 'translateY(0) rotate(0deg)',
+        opacity: '1',
+        borderRadius: '0',
+      },
+      '100%': {
+        transform: 'translateY(-1000px) rotate(720deg)',
+        opacity: '0', 
+        borderRadius: '50%',
+      }
+    }
   },
   header: {
     display: "flex",
@@ -43,12 +107,12 @@ const theme = {
       position: 'absolute',
     },
   },
-  title: {
-    padding: "1em",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
+  // title: {
+  //   padding: "1em",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "center",
+  // },
   main: {
     margin: "auto",
     maxWidth: "70vw",
@@ -89,11 +153,11 @@ const theme = {
       borderRight: "none",
       borderBottom: "4px solid",
       borderColor: "primary",
-      color: "#fff",
+      color: "text",
     },
     children: {
       margin: "1em",
-      width: ["15em","25em","25em"],
+      width: ["50vw", "50vw", "30vw"],
       fontWeight: "bold",
     },
     margin: "1em",
