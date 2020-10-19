@@ -3,20 +3,11 @@ import { jsx } from "theme-ui";
 import { Alert, Close } from "theme-ui";
 import Form from "./Form";
 import Switch from "./Switch";
-import OrangeBlob from '../public/orangeBlob.svg';
-import RedBlob from '../public/redBlob.svg';
-import PurpleBlob from '../public/purpleBlob.svg';
 
 const Header = ({ onChangeText, getData, alert, onClose, onToggle, loading }) => {
   return (
     <header sx={{ variant: "header" }}>
-      <div sx={{position:'relative', width: '100%', height: '100%', zIndex:0}}>
-      <PurpleBlob sx={{variant: 'header.svgBlob', zIndex: 0}}/>
-        <RedBlob sx={{variant: 'header.svgBlob', zIndex: -1 }}/>
-        <OrangeBlob sx={{variant: 'header.svgBlob', zIndex: -2}}/>
-      </div>
-       
-      <h1 sx={{ fontSize: "9vw" , marginTop: "0.2em", marginBottom: "0", color: "text", zIndex: 1 }}>
+      <h1 sx={{ fontSize: "9vw" , marginTop: "0.2em", marginBottom: "0", color: "primary", zIndex: 1 }}>
           InstaWeather
       </h1>
       <h2
@@ -24,7 +15,7 @@ const Header = ({ onChangeText, getData, alert, onClose, onToggle, loading }) =>
             fontSize: "3vw",
             marginTop: "0",
             zIndex: 1,
-            color: "text"
+            color: "primary"
           }}
         >
           Weather Conditions & Forecasts <span>&#9925;</span>

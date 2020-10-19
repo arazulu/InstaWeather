@@ -24,8 +24,8 @@ const theme = {
   bkgd: {
     overflow: 'hidden',
     position: 'fixed',
-    backgroundColor: '#4e54c8',
-    zIndex: '-5',
+    // backgroundColor: '#4e54c8',
+    zIndex: '-1',
     top: '0',
     left: '0',
     width: '100vw',
@@ -39,50 +39,50 @@ const theme = {
       animation: 'animate 25s linear infinite',
       bottom: '-150px',
     },
-    "svg:nth-child(1)": {
+    "svg:nth-of-type(1)": {
       left: '15%',
       width: '15%',
       height: '15%',
-      animationDelay: '2s',
+      animationDelay: '4s',
       animationDuration: '35s',
     },
-    "svg:nth-child(2)": {
-      left: '25%',
+    "svg:nth-of-type(2)": {
+      left: '0',
       width: '25%',
       height: '25%',
       animationDelay: '0s', 
     },
-    'svg:nth-child(3)':{
+    'svg:nth-of-type(3)':{
       left: '85%',
       width: '10%',
       height: '10%',
       animationDelay: '2s',
       animationDuration: '12s',
     },
-    'svg:nth-child(4)': {
-        left: '70%',
+    'svg:nth-of-type(4)': {
+        left: '40%',
         width: '15%',
         height: '15%',
         animationDelay: '4s',
     },
-    'svg:nth-child(5)': {
+    'svg:nth-of-type(5)': {
         left: '40%',
         width: '15%',
         height: '15%',
         animationDelay: '0s',
         animationDuration: '18s',
     },
-    'svg:nth-child(6)':{
+    'svg:nth-of-type(6)':{
         left: '65%',
         width: '8%',
         height: '8%',
         animationDelay: '0s',
     },
-    "&:nth-child(7)": {
-      left: '75%',
-      width: '110px',
-      height: '110px',
-      animationDelay: '3s',
+    "svg:nth-of-type(7)": {
+      left: '65%',
+      width: '11%',
+      height: '11%',
+      animationDelay: '10s',
     },
     "@keyframes animate": {
       '0%': {
@@ -107,12 +107,6 @@ const theme = {
       position: 'absolute',
     },
   },
-  // title: {
-  //   padding: "1em",
-  //   display: "flex",
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  // },
   main: {
     margin: "auto",
     maxWidth: "70vw",
@@ -153,7 +147,7 @@ const theme = {
       borderRight: "none",
       borderBottom: "4px solid",
       borderColor: "primary",
-      color: "text",
+      color: "primary",
     },
     children: {
       margin: "1em",
@@ -214,12 +208,8 @@ const theme = {
     },
   },
   tempCard: {
-    // borderRight: "4px inset rgb(255,255,255,0.15)",
-    // boxShadow:
-    //   "5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22)",
     borderRadius: "8px",
     p: 3, //padding = p
-    // backgroundColor: "rgb(255,255,255,.1)",
     margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {
@@ -231,10 +221,6 @@ const theme = {
       color: "#fff",
       fontSize: 6,
     },
-    // svg: {
-    //   height: "auto",
-    //   maxHeight: "10em",
-    // },
     li: {
       fontWeight: "bold",
       listStyleType: "none",

@@ -50,7 +50,7 @@ const Home = ({ data }) => {
         setTimeout(()=>{
           getWeatherData(data);
           isLoading(false);
-        },1000);
+        },500);
       })
       .catch((error) => {
         setAlert({isActive: true, message: `${error} - Please enter a valid location`})
