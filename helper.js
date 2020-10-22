@@ -1,5 +1,5 @@
 //converts UNIX to UTC and returns obj of date: Month/Day, day: a week day (ex Tuesday)
-const convertToMMDD = (dt) => {
+export const convertToMMDD = (dt,tzone) => {
   const weekday = [
     "Sunday",
     "Monday",
@@ -9,6 +9,11 @@ const convertToMMDD = (dt) => {
     "Friday",
     "Saturday",
   ];
+
+  // const targetOffset = new Date(dt).getTimezoneOffset();
+  // const localOffset = new Date().getTimezoneOffset();
+  // const tzDiff = localOffset * 60 + targetOffset;
+
   const date = new Date(dt * 1000);
   const month = date.getMonth() + 1;
   const day = date.getDate();
@@ -16,9 +21,18 @@ const convertToMMDD = (dt) => {
   return { date: `${month}/${day}`, day: dayOfWeek };
 };
 
+//converts UNIX to UTC and returns obj of date: hh:mm - 24 hr
+export const convertToHHMM = (dt,tzone) => {
+  
+  const date = new Date(dt * 1000);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  return date.toLocaleTimeString("en-US",{ timeZone: tzone});
+};
+
 //take main weather condition and picks the correct corresponding fontAwesomeIcon and background Color;
 export const getWeatherIcon = (weatherCondition) => {
-  const transparent = 0.75;
+  const transparent = 1;
   const condition = weatherCondition.toLowerCase();
   let result = {
     icon: [],

@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import fetch from "isomorphic-unfetch";
 
 const Home = ({ data }) => {
+  // const [currPosition, setCurrPosition] = useState({});
   const [cityOrZip, setCityOrZip] = useState("");
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState({isActive: false, message: ''});
@@ -23,39 +24,53 @@ const Home = ({ data }) => {
   }, [weatherData]);
 
   //ONCHANGE CITY/ZIP/ADDRESS TEXTFIELD
-  const onChangeText = (event) => {
-    setCityOrZip(event.target.value);
-  };
+  const onChangeText = (event) => setCityOrZip(event.target.value);
+  
 
   //CLOSE ALERT MESSAGE
   const onClose = () => setAlert({isActive: false, message: ''});
 
+  //GET CURR LOCATION
+  // const getCurrGPS = () => {
+  //   let currPos;
+  //   useEffect(()=>{
+  //     if (e.target.value === 'gps' || cityOrZip !== "") {
+  //       currPos = process.browser && navigator.geolocation.getCurrentPosition((position) => {
+  //         return  {latitude: position.coords.latitude, longitude: position.coords.longitude};
+  //       });
+  //     };
+  //   });
+
+  // }
+
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
-    e.preventDefault();
-    if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid address'});
-    if (cityOrZip !== "") {
+      e.preventDefault();   
+
+      if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid address'});
+
       setAlert(false);
-    }
-    isLoading(true);
-    fetch(`/api/search/${cityOrZip}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTimeout(()=>{
-          getWeatherData(data);
-          isLoading(false);
-        },500);
+      isLoading(true);
+
+      fetch(`/api/search/${cityOrZip}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        setAlert({isActive: true, message: `${error} - Please enter a valid location`})
-      });
-  };
+        .then((res) => res.json())
+        .then((data) => {
+          setTimeout(()=>{
+            getWeatherData(data);
+            isLoading(false);
+          },500);
+        })
+        .catch((error) => {
+          setAlert({isActive: true, message: `${error} - Please enter a valid location`});
+          isLoading(false);
+        });
+  };   
 
 
   //ONCHANGE TEMP DEGREE SWITCH
@@ -67,6 +82,8 @@ const Home = ({ data }) => {
 
     getDegreeType({ celsius: setChecked });
   };
+
+  console.log('weatherData', weatherData);
 
   return (
     <>

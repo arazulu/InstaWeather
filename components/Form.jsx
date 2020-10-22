@@ -11,9 +11,9 @@ const Form = ({ onChangeText, getData }) => {
         type="search"
         ariaHidden="true"
         ariaLabel="input box for search query"
-        placeholder="type address, city, zip code or landmark name"
+        placeholder="type address, city, zip code or landmark"
         onChange={onChangeText}
-        sx={{ variant: "form.children", "&::placeholder": {color: 'primary'} }}
+        sx={{ variant: "form.children", "&::placeholder": {color: 'primary', textAlign: ['left', 'center', 'center'], fontSize: ['15px', '20px', '20px']} }}
       />
       <Button
         ariaLabel="Submit search text"

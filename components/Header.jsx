@@ -7,12 +7,12 @@ import Switch from "./Switch";
 const Header = ({ onChangeText, getData, alert, onClose, onToggle, loading }) => {
   return (
     <header sx={{ variant: "header" }}>
-      <h1 sx={{ fontSize: "9vw" , marginTop: "0.2em", marginBottom: "0", color: "primary", zIndex: 1 }}>
+      <h1 sx={{ fontSize: ["15vw", "10vw", "10vw"] , marginTop: "0.2em", marginBottom: "0", color: "primary", zIndex: 1 }}>
           InstaWeather
       </h1>
       <h2
           sx={{
-            fontSize: "3vw",
+            fontSize: ["5vw", "3vw", "3vw"],
             marginTop: "0",
             zIndex: 1,
             color: "primary"

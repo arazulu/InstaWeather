@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const WeatherIcon = ({ colorsTemplate }) => {
   return (
     <>
-      <div
+      {/* <div
         sx={{
           content: "''",
           backgroundColor: "rgba(190,28,65, 0.75)",
@@ -32,7 +32,7 @@ const WeatherIcon = ({ colorsTemplate }) => {
           borderRadius: "25px",
           transform: "rotate(-10deg)",
         }}
-      ></div>
+      ></div> */}
 
       <div
         sx={{

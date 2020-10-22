@@ -102,10 +102,10 @@ const theme = {
     flexDirection: "column",
     alignItems: 'center',
     height: 'auto',
-    position: 'relative',
-    svgBlob: {
-      position: 'absolute',
-    },
+    // position: 'relative',
+    // svgBlob: {
+    //   position: 'absolute',
+    // },
   },
   main: {
     margin: "auto",
@@ -120,7 +120,7 @@ const theme = {
   secondary: {
     display: "grid",
     gridTemplateColumns: ["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)"],
-    gridTemplateRows: ["repeat(8,60vh)", "repeat(4, 60vh)", "repeat(4, 60vh)"],
+    gridTemplateRows: ["repeat(8,1f)", "repeat(4, 1fr)", "repeat(4, 1fr)"],
     gridGap: "10px",
     container: {
       backgroundColor: "secondary",
@@ -188,9 +188,8 @@ const theme = {
   },
   currTemp: {
     display: 'flex',
-    flexDirection: ["column", "row", "row"],
+    flexDirection: "column",
     borderRadius: "8px",
-    p: 3, 
     margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {
@@ -208,9 +207,13 @@ const theme = {
     },
   },
   tempCard: {
+    display: "flex",
+    flexDirection: "column",
+    margin: "0",
+    padding: "0",
     borderRadius: "8px",
-    p: 3, //padding = p
-    margin: "20px",
+    // p: [1,3,3], //padding = p
+    // margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {
       position: "absolute",
@@ -233,6 +236,7 @@ const theme = {
     marginTop: '1em'
   },
 };
-console.log("THEME:", theme);
+
+console.log('theme', theme);
 
 export default theme;

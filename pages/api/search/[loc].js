@@ -1,4 +1,4 @@
-import convertToMMDD from "../../../helper.js";
+import {convertToMMDD, convertToHHMM} from "../../../helper.js";
 
 const search = async (req, res) => {
   const { loc } = req.query;
@@ -17,6 +17,7 @@ const search = async (req, res) => {
     place: mapboxJson.features[0].place_name,
   };
 
+  console.log('coordinates', coordinates)
   //get current and daily (7day) forecast from openWeather api
   const fetchWeather = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
@@ -44,9 +45,12 @@ const search = async (req, res) => {
       humidity: openWeather.current.humidity,
       uvi: openWeather.current.uvi,
       wind_speed: openWeather.current.wind_speed,
+      feels_like: parseInt(openWeather.current.feels_like - 273.15),
+      sunrise: convertToHHMM(openWeather.current.sunrise, openWeather.timezone),
+      sunset: convertToHHMM(openWeather.current.sunset, openWeather.timezone),
     },
     days: openWeather.daily.map((curr) => {
-      const mmDDAndDay = convertToMMDD(curr.dt);
+      const mmDDAndDay = convertToMMDD(curr.dt, openWeather.timezone);
       return {
         date: mmDDAndDay.date,
         day: mmDDAndDay.day,
@@ -58,6 +62,9 @@ const search = async (req, res) => {
         humidity: curr.humidity,
         uvi: curr.uvi,
         wind_speed: curr.wind_speed,
+        feels_like: parseInt(curr.feels_like.day - 273.15),
+        sunrise: convertToHHMM(curr.sunrise,openWeather.timezone),
+        sunset: convertToHHMM(curr.sunset,openWeather.timezone),
       };
     }),
   };

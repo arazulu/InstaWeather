@@ -19,10 +19,7 @@ const Main = ({ weatherData, degree, loading}) => {
           weatherData.days.map((curr, idx) => {
             const colorsTemplate = getWeatherIcon(curr.main);
             return (
-              <div
-                key={idx}
-                sx={{variant: 'secondary.container'}}
-              >
+              <div key={idx} sx={{variant: 'secondary.container'}}>
                 <WeatherIcon colorsTemplate={colorsTemplate}/>
                 <TempCard temp={curr} degree={degree} />
               </div>
