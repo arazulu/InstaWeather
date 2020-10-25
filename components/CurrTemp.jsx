@@ -24,7 +24,7 @@ const MainDesc = ({ degree, data }) => {
         },
       }}
     >
-      <div sx={{display: 'flex', flexDirection: ['column', 'row', 'row'],  justifyContent: 'space-between', alignItems:'center'}}>
+      <div sx={{maxHeight: ['40%', '60%', '60%'],display: 'flex', flexDirection: ['column', 'row', 'row'],  justifyContent: 'space-around', alignItems:'center'}}>
       
         <img
           alt={data.name}
@@ -37,7 +37,7 @@ const MainDesc = ({ degree, data }) => {
             width: "100%",
             position: 'absolute',
             zIndex: 0, 
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 90%, 60% 90%, 50% 100%, 40% 90%, 0 90%)'
+            // clipPath: 'polygon(0% 0%, 100% 0%, 100% 90%, 60% 90%, 50% 100%, 40% 90%, 0 90%)'
           }}
         />
        
@@ -56,8 +56,9 @@ const MainDesc = ({ degree, data }) => {
         </div>
         
       </div>
-      
+     
       <div sx={{zIndex: 1, display: 'flex', flexDirection: ['column', 'row','row'], justifyContent: 'space-around', li: {fontSize: ['16px','18px']}}}>
+      
         <div sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <p sx={{ fontSize: [6,7,7], margin: '0' }}>
               {degree.celsius
@@ -66,11 +67,11 @@ const MainDesc = ({ degree, data }) => {
              </p>
             <p sx={{fontWeight: 'lighter', fontSize: [3,4,4], margin: '0'}}>{data.curr.day}</p>
             <p sx={{ fontSize: [4,5,5], margin: '0'}}>Current</p>
+            <p>Timezone: {data.name}</p>
         </div>
-        {/* <div >
-        <p>Timezone: {data.name}</p>
-        </div> */}
-         
+        
+        
+      
           <ul>
             <li>Feels Like: {degree.celsius
                 ? `${data.curr.feels_like} ºC`

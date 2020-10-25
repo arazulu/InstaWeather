@@ -210,10 +210,8 @@ const theme = {
     display: "flex",
     flexDirection: "column",
     margin: "0",
-    padding: "0",
+    padding: "1em",
     borderRadius: "8px",
-    // p: [1,3,3], //padding = p
-    // margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
     textImage: {
       position: "absolute",
@@ -232,6 +230,7 @@ const theme = {
   footer: {
     display: "flex",
     justifyContent: "center",
+    textAlign: 'center',
     color: 'secondary',
     marginTop: '1em'
   },

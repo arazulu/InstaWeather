@@ -1,33 +1,47 @@
+import moment from 'moment-timezone';
+
 //converts UNIX to UTC and returns obj of date: Month/Day, day: a week day (ex Tuesday)
 export const convertToMMDD = (dt,tzone) => {
-  const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+
+  const dtMoment = moment.unix(dt);
+  const tzMMDD = dtMoment.tz(tzone).format('MM/DD');
+  const tzDDDD = dtMoment.tz(tzone).format('ddd');
+  return { date: tzMMDD, day: tzDDDD };
+  // const weekday = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  // ];
 
   // const targetOffset = new Date(dt).getTimezoneOffset();
   // const localOffset = new Date().getTimezoneOffset();
   // const tzDiff = localOffset * 60 + targetOffset;
 
-  const date = new Date(dt * 1000);
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const dayOfWeek = weekday[date.getDay()];
-  return { date: `${month}/${day}`, day: dayOfWeek };
+  // const date = new Date(dt * 1000);
+  // const month = date.getMonth() + 1;
+  // const day = date.getDate();
+  // const dayOfWeek = weekday[date.getDay()];
+  // return { date: `${month}/${day}`, day: dayOfWeek };
 };
 
 //converts UNIX to UTC and returns obj of date: hh:mm - 24 hr
 export const convertToHHMM = (dt,tzone) => {
+
+  const dtMoment = moment.unix(dt);
+  const tzHHMM = dtMoment.tz(tzone).format('h:mm A');
+  return tzHHMM;
+  // console.log('tzHHMM', tzHHMM);
+  // const dayOfWeekDt = moment.tz(dt,'dddd',tzone);
+  // console.log('dayOfWeekDt', dayOfWeekDt);
   
-  const date = new Date(dt * 1000);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  return date.toLocaleTimeString("en-US",{ timeZone: tzone});
+  // const date = new Date(dt * 1000);
+  // const hours = date.getHours();
+  // const minutes = date.getMinutes();
+  // return date.toLocaleTimeString("en-US",{ timeZone: tzone});
 };
 
 //take main weather condition and picks the correct corresponding fontAwesomeIcon and background Color;

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import {Divider} from 'theme-ui'
 
 const TempCard = ({ temp, degree }) => {
 
@@ -11,44 +12,44 @@ const TempCard = ({ temp, degree }) => {
   return (
     <div sx={{variant: "tempCard"}}>
 
-      <h1 sx={{alignSelf: "flex-end", paddingRight: "2em"}}>{temp.day} - {temp.date}</h1>
+    
+        <p sx={{alignSelf: 'flex-end', fontSize: ['1.5em', '2em','2em'], margin: '0'}}>{temp.day}</p>
+        <p sx={{alignSelf: 'flex-end', fontSize: ['1em','2em','2em'], margin: '0'}}>{temp.date}</p>
 
-      <div sx={{ display: "flex", justifyContent: ["center"], alignItems: "flex-end" }}>
-
-        <div sx={{ display: "flex", flexDirection: "column" }}>
-          <h2 sx={{ fontSize: 6, marginBottom: "0em" }}>
+        <div sx={{ display: "flex", flexDirection: "column", alignItems: 'center', marginTop: '0'}}>
+          <p sx={{ fontSize: '3em', marginBottom: "0",  marginTop: '0'}}>
             {temp.temp} &#176;{degree.celsius ? "C" : "F"}
-          </h2>
-          <h3 sx={{marginTop: '0em'}}>{temp.desc}</h3>
+          </p>
+          <p sx={{marginTop: '0em', marginBottom: 'auto',fontSize: ['1em','1.5em','1.5em']}}>{temp.desc}</p>
         </div>
-
-        <div sx={{display: 'flex', justifyContent: 'center'}}>
-          <ul>
-            <li>Feels Like: {degree.celsius
+      <Divider/>
+        <div sx={{display: 'flex', justifyContent: 'space-around', flexDirection:'column'}}>
+          <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3']}}>
+            <li>Feels Like - {degree.celsius
                 ? `${temp.feels_like} ºC`
                 : feelsLikeFahrenheit}</li>
             <li>
-              Min:{" "}
+              Min -{" "}
               {degree.celsius
                 ? `${temp.min} ºC`
                 : minFahrenheit}
             </li>
             <li>
-              Max:{" "}
+              Max -{" "}
               {degree.celsius
                 ? `${temp.max} ºC`
                 : maxFahrenheit}
             </li>
-            <li>Humidity: {temp.humidity}%</li>
-            <li>UV Index: {temp.uvi}</li>
-            <li>Wind Speed: {temp.wind_speed} m/s</li>
-            <li>Sunrise: {temp.sunrise} </li>
-            <li>Sunset: {temp.sunset} </li>
+            <li>Humidity - {temp.humidity}%</li>
+          </ul>
+          <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3']}}>
+            <li>UV Index - {temp.uvi}</li>
+            <li>Wind Speed - {temp.wind_speed} m/s</li>
+            <li>Sunrise - {temp.sunrise} </li>
+            <li>Sunset - {temp.sunset} </li>
           </ul>
         </div>
 
-      </div>
-      
     </div>
   );
 };

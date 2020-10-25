@@ -17,7 +17,6 @@ const search = async (req, res) => {
     place: mapboxJson.features[0].place_name,
   };
 
-  console.log('coordinates', coordinates)
   //get current and daily (7day) forecast from openWeather api
   const fetchWeather = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
@@ -31,7 +30,8 @@ const search = async (req, res) => {
   const unsplash = await fetchPhoto.json();
 
   //create collective data object to be sent to frontend
-  const mmDDAndCurrDay = convertToMMDD(openWeather.current.dt);
+  const currMonthDay = convertToMMDD(openWeather.current.dt,openWeather.timezone);
+
   const data = {
     unsplash: unsplash[0].urls.custom,
     coord: coordinates,
@@ -39,8 +39,8 @@ const search = async (req, res) => {
     main: openWeather.current.weather[0].main,
     name: openWeather.timezone,
     curr: {
-      date: mmDDAndCurrDay.date,
-      day: mmDDAndCurrDay.day,
+      date: currMonthDay.date,
+      day: currMonthDay.day,
       temp: parseInt(openWeather.current.temp - 273.15), //change to celsius
       humidity: openWeather.current.humidity,
       uvi: openWeather.current.uvi,
@@ -50,10 +50,12 @@ const search = async (req, res) => {
       sunset: convertToHHMM(openWeather.current.sunset, openWeather.timezone),
     },
     days: openWeather.daily.map((curr) => {
-      const mmDDAndDay = convertToMMDD(curr.dt, openWeather.timezone);
+      
+      const dailyMonthDay = convertToMMDD(curr.dt, openWeather.timezone);
+
       return {
-        date: mmDDAndDay.date,
-        day: mmDDAndDay.day,
+        date: dailyMonthDay.date,
+        day: dailyMonthDay.day,
         temp: parseInt(curr.temp.day - 273.15),
         min: parseInt(curr.temp.min - 273.15),
         max: parseInt(curr.temp.max - 273.15),
