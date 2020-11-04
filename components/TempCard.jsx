@@ -11,11 +11,8 @@ const TempCard = ({ temp, degree }) => {
 
   return (
     <div sx={{variant: "tempCard"}}>
-
-    
         <p sx={{alignSelf: 'flex-end', fontSize: ['1.5em', '2em','2em'], margin: '0'}}>{temp.day}</p>
         <p sx={{alignSelf: 'flex-end', fontSize: ['1em','2em','2em'], margin: '0'}}>{temp.date}</p>
-
         <div sx={{ display: "flex", flexDirection: "column", alignItems: 'center', marginTop: '0'}}>
           <p sx={{ fontSize: '3em', marginBottom: "0",  marginTop: '0'}}>
             {temp.temp} &#176;{degree.celsius ? "C" : "F"}

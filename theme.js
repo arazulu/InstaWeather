@@ -24,7 +24,6 @@ const theme = {
   bkgd: {
     overflow: 'hidden',
     position: 'fixed',
-    // backgroundColor: '#4e54c8',
     zIndex: '-1',
     top: '0',
     left: '0',
@@ -50,9 +49,9 @@ const theme = {
       left: '0',
       width: '25%',
       height: '25%',
-      animationDelay: '0s', 
+      animationDelay: '0s',
     },
-    'svg:nth-of-type(3)':{
+    'svg:nth-of-type(3)': {
       left: '85%',
       width: '10%',
       height: '10%',
@@ -60,23 +59,23 @@ const theme = {
       animationDuration: '12s',
     },
     'svg:nth-of-type(4)': {
-        left: '40%',
-        width: '15%',
-        height: '15%',
-        animationDelay: '4s',
+      left: '40%',
+      width: '15%',
+      height: '15%',
+      animationDelay: '4s',
     },
     'svg:nth-of-type(5)': {
-        left: '40%',
-        width: '15%',
-        height: '15%',
-        animationDelay: '0s',
-        animationDuration: '18s',
+      left: '40%',
+      width: '15%',
+      height: '15%',
+      animationDelay: '0s',
+      animationDuration: '18s',
     },
-    'svg:nth-of-type(6)':{
-        left: '65%',
-        width: '8%',
-        height: '8%',
-        animationDelay: '0s',
+    'svg:nth-of-type(6)': {
+      left: '65%',
+      width: '8%',
+      height: '8%',
+      animationDelay: '0s',
     },
     "svg:nth-of-type(7)": {
       left: '65%',
@@ -92,7 +91,7 @@ const theme = {
       },
       '100%': {
         transform: 'translateY(-1000px) rotate(720deg)',
-        opacity: '0', 
+        opacity: '0',
         borderRadius: '50%',
       }
     }
@@ -101,11 +100,7 @@ const theme = {
     display: "flex",
     flexDirection: "column",
     alignItems: 'center',
-    height: 'auto',
-    // position: 'relative',
-    // svgBlob: {
-    //   position: 'absolute',
-    // },
+    height: 'auto'
   },
   main: {
     margin: "auto",
@@ -132,7 +127,7 @@ const theme = {
       "&:hover": {
         transform: "scale(1.1, 1.1)",
         boxShadow:
-        "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
+          "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
       },
       margin: ["20px", "40px", "40px"],
       alignSelf: "auto"
@@ -163,16 +158,16 @@ const theme = {
     zIndex: ["3", "5", "5"],
     position: ["null", "fixed", "fixed"],
     left: ['null', '-10px', "-10px"],
-    top: ['null', '40vh',"40vh"],
+    top: ['null', '40vh', "40vh"],
     width: ['fit-content', 'initial', 'initial'],
     margin: 'auto',
     display: 'flex',
     flexDirection: ['row', 'column', 'column'],
-    path: { color: "text"},
+    path: { color: "text" },
     children: {
       margin: "0.5em",
       cursor: 'pointer',
-      padding: ["0.5em", "1em","1em"],
+      padding: ["0.5em", "1em", "1em"],
       marginBottom: "1em",
       color: "text",
       fontWeight: "bold",
@@ -192,15 +187,6 @@ const theme = {
     borderRadius: "8px",
     margin: "20px",
     textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
-    textImage: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%,-50%)",
-      textAlign: "left",
-      color: "#fff",
-      fontSize: 6,
-    },
     li: {
       fontWeight: "bold",
       listStyleType: "none",
@@ -232,10 +218,9 @@ const theme = {
     justifyContent: "center",
     textAlign: 'center',
     color: 'secondary',
-    marginTop: '1em'
+    margin: '1em'
   },
 };
 
-console.log('theme', theme);
 
 export default theme;
