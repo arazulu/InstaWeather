@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 
 const Footer = () => {
   return (
-    <footer sx={{ variant: "footer", fontWeight: 'bold', fontSize: [2, 4, 5], a: { textDecoration: 'none' } }}>
+    <footer sx={{ variant: "footer"}}>
       <p>Icons made by <a
         href="https://fontawesome.com/how-to-use/on-the-web/using-with/react"
         title="font awesome"

@@ -35,53 +35,58 @@ const theme = {
       display: 'block',
       width: '10%',
       height: '10%',
-      animation: 'animate 25s linear infinite',
+      animation: 'animate linear infinite',
+      // 25s
       bottom: '-150px',
     },
     "svg:nth-of-type(1)": {
-      left: '15%',
+      left: '0',
       width: '15%',
       height: '15%',
-      animationDelay: '4s',
-      animationDuration: '35s',
+      animationDelay: '2s',
+      animationDuration: '23s',
     },
     "svg:nth-of-type(2)": {
-      left: '0',
-      width: '25%',
-      height: '25%',
+      left: '15%',
+      width: '16%',
+      height: '16%',
       animationDelay: '0s',
+      animationDuration: '20s'
     },
     'svg:nth-of-type(3)': {
-      left: '85%',
-      width: '10%',
-      height: '10%',
-      animationDelay: '2s',
-      animationDuration: '12s',
+      left: '15%',
+      width: '11%',
+      height: '11%',
+      animationDelay: '10s',
+      animationDuration: '20s',
     },
     'svg:nth-of-type(4)': {
       left: '40%',
       width: '15%',
       height: '15%',
-      animationDelay: '4s',
+      animationDelay: '5s',
+      animationDuration: '23s'
     },
     'svg:nth-of-type(5)': {
-      left: '40%',
+      left: '65%',
       width: '15%',
       height: '15%',
       animationDelay: '0s',
-      animationDuration: '18s',
+      animationDuration: '15s',
     },
     'svg:nth-of-type(6)': {
       left: '65%',
       width: '8%',
       height: '8%',
-      animationDelay: '0s',
+      animationDelay: '7s',
+      animationDuration: '15s'
     },
     "svg:nth-of-type(7)": {
-      left: '65%',
-      width: '11%',
-      height: '11%',
-      animationDelay: '10s',
+      left: '85%',
+      width: '10%',
+      height: '10%',
+      animationDelay: '2s',
+      animationDuration: '23s',
     },
     "@keyframes animate": {
       '0%': {
@@ -100,13 +105,47 @@ const theme = {
     display: "flex",
     flexDirection: "column",
     alignItems: 'center',
-    height: 'auto'
+    height: 'auto',
+    color: "primary",
+    h1: {
+      fontSize: ["15vw", "10vw", "10vw"], 
+      marginTop: "0.2em",
+      marginBottom: "0",
+    },
+    h2: {
+      fontSize: ["5vw", "3vw", "3vw"],
+      marginTop: "0",
+    },
+    form: {
+      margin: "1em",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      input: {
+        borderColor: "primary",
+        borderRadius: "0px",
+        borderLeft: "none",
+        borderTop: "none",
+        borderRight: "none",
+        borderBottom: "4px solid",
+        borderColor: "primary",
+        color: "primary",
+      },
+      children: {
+        margin: "1em",
+        width: ["50vw", "50vw", "30vw"],
+        fontWeight: "bold",
+      },
+    },
   },
   main: {
     margin: "auto",
-    maxWidth: "70vw",
+    maxWidth: "80vw",
     display: "flex",
     flexDirection: "column",
+    "@media only screen and (max-width: 425px)": {
+      maxWidth: "100vw"
+    }
   },
   primary: {
     display: "flex",
@@ -132,27 +171,6 @@ const theme = {
       margin: ["20px", "40px", "40px"],
       alignSelf: "auto"
     }
-  },
-  form: {
-    input: {
-      borderColor: "primary",
-      borderRadius: "0px",
-      borderLeft: "none",
-      borderTop: "none",
-      borderRight: "none",
-      borderBottom: "4px solid",
-      borderColor: "primary",
-      color: "primary",
-    },
-    children: {
-      margin: "1em",
-      width: ["50vw", "50vw", "30vw"],
-      fontWeight: "bold",
-    },
-    margin: "1em",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
   },
   switch: {
     zIndex: ["3", "5", "5"],
@@ -215,10 +233,16 @@ const theme = {
   },
   footer: {
     display: "flex",
+    alignItems: "flex-end",
     justifyContent: "center",
     textAlign: 'center',
     color: 'secondary',
-    margin: '1em'
+    margin: '1em',
+    fontWeight: 'bold', 
+    fontSize: [2, 4, 5], 
+    a: { 
+      textDecoration: 'none' 
+    } 
   },
 };
 

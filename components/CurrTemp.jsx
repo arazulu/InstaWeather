@@ -13,7 +13,11 @@ const MainDesc = ({ degree, data }) => {
       sx={{
         variant: "currTemp",
         margin: "5em 0 5em 0",
-        // backgroundColor: colorsTemplate.bgColor,
+        // WebkitTextShadow: '4px 3px 0px #7A7A7A',
+        // textShadow: '4px 3px 0px #7A7A7A',
+        textShadow: '2px 2px 2px #3D3D3D',
+        // WebkitTextStroke: "1px #3D3D3D",
+        backgroundColor: colorsTemplate.bgColor,
         boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
         transition: "0.4s",
         position: 'relative',
@@ -38,7 +42,7 @@ const MainDesc = ({ degree, data }) => {
       }}
     >
     <div sx={{ zIndex: 2, position: 'relative', padding: '1em'}}>
-      <div sx={{ maxHeight: ['40%', '60%', '60%'], display: 'flex', flexDirection: ['column', 'row', 'row'], justifyContent: 'space-around', alignItems: 'center' }}>
+      <div sx={{ maxHeight: ['40%', '60%', '60%'], display: 'flex', flexDirection: ['column', 'row', 'row'], justifyContent: 'space-around', alignItems: 'baseline' }}>
 
         {/* <img
           alt={data.name}
@@ -62,13 +66,13 @@ const MainDesc = ({ degree, data }) => {
         
 
 
-        <div sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div sx={{ lineHeight: 1, margin: '2em', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p sx={{ fontSize: [6, 7, 7], margin: '0' }}>
             {degree.celsius
               ? `${data.curr.temp} ºC`
               : currFahrenheit}
           </p>
-          <p sx={{ fontSize: [4, 5, 5], margin: '0' }}>Current</p>
+          <p sx={{ fontSize: [4, 5, 5], margin: '0', fontWeight: 'bold' }}>Current</p>
           {/* <p sx={{ fontWeight: 'lighter', fontSize: [3, 4, 4], margin: '0' }}>{data.curr.day}</p> */}        
         </div>
 
@@ -91,17 +95,21 @@ const MainDesc = ({ degree, data }) => {
         
 
 
-
+      <div sx={{display: 'flex', flexDirection: ['column', 'row', 'row'], alignItems: 'center', li: {fontSize: '20px'}}}>
         <ul>
           <li>Feels Like: {degree.celsius
-            ? `${data.curr.feels_like} ºC`
-            : feelsLikeFahrenheit}</li>
+              ? `${data.curr.feels_like} ºC`
+              : feelsLikeFahrenheit}</li>
           <li>Humidity: {data.curr.humidity}%</li>
           <li>UV Index: {data.curr.uvi}</li>
+        </ul>
+        <ul>
           <li>Wind Speed: {data.curr.wind_speed} metre/sec</li>
           <li>Sunrise: {data.curr.sunrise}</li>
           <li>Sunset: {data.curr.sunset}</li>
         </ul>
+      </div>
+        
       </div>
     </div>
 
