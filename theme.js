@@ -41,52 +41,52 @@ const theme = {
     },
     "svg:nth-of-type(1)": {
       left: '0',
-      width: '15%',
-      height: '15%',
+      width: '14%',
+      height: '14%',
       animationDelay: '2s',
-      animationDuration: '23s',
+      animationDuration: '21s',
     },
     "svg:nth-of-type(2)": {
-      left: '15%',
-      width: '16%',
-      height: '16%',
+      left: '25%',
+      width: '15%',
+      height: '15%',
       animationDelay: '0s',
       animationDuration: '20s'
     },
     'svg:nth-of-type(3)': {
-      left: '15%',
+      left: '25%',
       width: '11%',
       height: '11%',
       animationDelay: '10s',
       animationDuration: '20s',
     },
     'svg:nth-of-type(4)': {
-      left: '40%',
+      left: '50%',
       width: '15%',
       height: '15%',
       animationDelay: '5s',
-      animationDuration: '23s'
+      animationDuration: '21s'
     },
     'svg:nth-of-type(5)': {
-      left: '65%',
+      left: '75%',
       width: '15%',
       height: '15%',
       animationDelay: '0s',
       animationDuration: '15s',
     },
     'svg:nth-of-type(6)': {
-      left: '65%',
+      left: '75%',
       width: '8%',
       height: '8%',
       animationDelay: '7s',
       animationDuration: '15s'
     },
     "svg:nth-of-type(7)": {
-      left: '85%',
+      left: '90%',
       width: '10%',
       height: '10%',
       animationDelay: '2s',
-      animationDuration: '23s',
+      animationDuration: '21s',
     },
     "@keyframes animate": {
       '0%': {
@@ -200,15 +200,38 @@ const theme = {
     },
   },
   currTemp: {
-    display: 'flex',
-    flexDirection: "column",
-    borderRadius: "8px",
-    margin: "20px",
-    textShadow: "0px 5px 4px rgba(0,0,0,0.23)",
+    backgroundColor: 'rgba(16, 63, 236,1)',
+    borderRadius: "20px",
+    boxShadow: "0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0)",
+    margin: "5em 0 5em 0",
+    overflow: 'hidden',
+    position: 'relative',
+    textShadow: '4px 4px 4px #3D3D3D',
+    transition: "0.4s",
     li: {
-      fontWeight: "bold",
-      listStyleType: "none",
+      fontSize: ['20px','20px', '35px'], 
+      fontWeight: 'bold',
+      listStyle: 'none',
     },
+    "&:hover": {
+      boxShadow:
+        "5px 5px 30px 15px rgba(0,0,0,0.25),-5px -5px 30px 15px rgba(0,0,0,0.22)",
+      transform: "scale(1.05, 1.05)",
+    },
+    row1: {
+      alignItems: 'center', 
+      display: 'flex',
+      flexDirection: ['column', 'row', 'row'],
+      justifyContent: 'space-around',
+      maxHeight: ['40%', '60%', '60%'], 
+    },
+    row2: {
+      alignItems: 'center', 
+      padding: '1em', 
+      display: 'flex', 
+      flexDirection: ['column', 'row', 'row'], 
+      justifyContent: 'space-around', 
+    }
   },
   tempCard: {
     display: "flex",
@@ -225,6 +248,14 @@ const theme = {
       textAlign: "left",
       color: "#fff",
       fontSize: 6,
+    },
+    list: {
+      "@media only screen and (max-width: 425px)": {
+
+      },
+      "@media only screen and (max-width: 768px)": {
+
+      },
     },
     li: {
       fontWeight: "bold",

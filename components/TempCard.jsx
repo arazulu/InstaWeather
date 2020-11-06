@@ -17,33 +17,27 @@ const TempCard = ({ temp, degree }) => {
           <p sx={{ fontSize: '3em', marginBottom: "0",  marginTop: '0'}}>
             {temp.temp} &#176;{degree.celsius ? "C" : "F"}
           </p>
-          <p sx={{marginTop: '0em', marginBottom: 'auto',fontSize: ['1em','1.5em','1.5em']}}>{temp.desc}</p>
+          <p sx={{marginTop: '0em', marginBottom: 'auto',fontSize: '1.5em'}}>{temp.desc}</p>
         </div>
       <Divider/>
-        <div sx={{display: 'flex', justifyContent: 'space-around', flexDirection:'column'}}>
-          <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3']}}>
-            <li>Feels Like - {degree.celsius
+        <div sx={{variant: 'tempCard.list',display: 'flex', flexDirection: ['column', 'column', 'row'],justifyContent: 'space-around', ul: {alignSelf: 'center'}}}>
+          <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3'], display: 'flex', flexDirection: 'column'}}>
+            <li>Feels Like : {degree.celsius
                 ? `${temp.feels_like} ºC`
                 : feelsLikeFahrenheit}</li>
             <li>
-              Min -{" "}
+              Min/Max:{" "} 
               {degree.celsius
-                ? `${temp.min} ºC`
-                : minFahrenheit}
+                ? `${temp.min} ºC / ${temp.max} ºC`
+                : `${minFahrenheit} / ${maxFahrenheit}`}
             </li>
-            <li>
-              Max -{" "}
-              {degree.celsius
-                ? `${temp.max} ºC`
-                : maxFahrenheit}
-            </li>
-            <li>Humidity - {temp.humidity}%</li>
+            <li>Humidity : {temp.humidity}%</li>
           </ul>
-          <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3']}}>
-            <li>UV Index - {temp.uvi}</li>
-            <li>Wind Speed - {temp.wind_speed} m/s</li>
-            <li>Sunrise - {temp.sunrise} </li>
-            <li>Sunset - {temp.sunset} </li>
+          <ul sx={{display: 'flex', flexDirection: 'column', margin: '0', padding: '0', fontSize: ['1', '2', '3']}}>
+            <li>UV Index : {temp.uvi}</li>
+            <li>Wind Speed : {temp.wind_speed} m/s</li>
+            <li>Sunrise : {temp.sunrise} </li>
+            <li>Sunset : {temp.sunset} </li>
           </ul>
         </div>
 
