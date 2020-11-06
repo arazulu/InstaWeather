@@ -7,10 +7,9 @@ import { Label, Radio } from "theme-ui";
  */
 
 const Switch = ({ onToggle }) => {
-
   return (
     <div sx={{ variant: "switch" }}>
-      <Label sx={{ variant: "switch.children"}}>
+      <Label sx={{ variant: "switch.children" }}>
         <Radio
           name="Degree"
           value="celsius"
@@ -19,7 +18,7 @@ const Switch = ({ onToggle }) => {
         />
         ºC
       </Label>
-      <Label sx={{ variant: "switch.children"}}>
+      <Label sx={{ variant: "switch.children" }}>
         <Radio name="Degree" value="fahrenheit" onChange={onToggle} />
         ºF
       </Label>

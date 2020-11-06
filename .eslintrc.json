@@ -25,5 +25,9 @@
     },
     "globals": {
         "React": "writable"
+    },
+    "editor.codeActionsOnSave": {
+        // For ESLint
+        "source.fixAll.eslint": true
     }
 }
