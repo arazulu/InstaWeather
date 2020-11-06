@@ -2,38 +2,13 @@
 import { jsx } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+/**
+ * Weather Icons' container for daily temperature cards;
+ */
+
 const WeatherIcon = ({ colorsTemplate }) => {
   return (
     <>
-      {/* <div
-        sx={{
-          content: "''",
-          backgroundColor: "rgba(190,28,65, 0.75)",
-          height: ["5em", "10em", "10em"],
-          width: ["5em", "10em", "10em"],
-          zIndex: "2",
-          position: "absolute",
-          top: ["-1em", "-3em", "-3em"],
-          left: ["0em", "-2em", "-2em"],
-          borderRadius: "25px",
-          transform: "rotate(10deg)",
-        }}
-      ></div>
-      <div
-        sx={{
-          content: "''",
-          backgroundColor: "rgba(150, 32, 198, 0.75)",
-          height: ["5em", "10em", "10em"],
-          width: ["5em", "10em", "10em"],
-          zIndex: "3",
-          position: "absolute",
-          top: ["-1em", "-3em", "-3em"],
-          left: ["-2em", "-4em", "-4em"],
-          borderRadius: "25px",
-          transform: "rotate(-10deg)",
-        }}
-      ></div> */}
-
       <div
         sx={{
           backgroundColor: colorsTemplate.bgColor,

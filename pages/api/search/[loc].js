@@ -29,7 +29,8 @@ const search = async (req, res) => {
   );
   const unsplash = await fetchPhoto.json();
 
-  //create collective data object to be sent to frontend
+  //create collective data object to be sent to frontend - 'weatherData'
+
   const currMonthDay = convertToMMDD(openWeather.current.dt,openWeather.timezone);
 
   const data = {

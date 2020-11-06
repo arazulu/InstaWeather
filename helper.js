@@ -1,7 +1,7 @@
 import moment from 'moment-timezone';
 
 //converts UNIX to UTC and returns obj of date: Month/Day, day: a week day (ex Tuesday)
-export const convertToMMDD = (dt,tzone) => {
+export const convertToMMDD = (dt, tzone) => {
 
   const dtMoment = moment.unix(dt);
   const tzMMDD = dtMoment.tz(tzone).format('MM/DD');
@@ -29,7 +29,7 @@ export const convertToMMDD = (dt,tzone) => {
 };
 
 //converts UNIX to UTC and returns obj of date: hh:mm - 24 hr
-export const convertToHHMM = (dt,tzone) => {
+export const convertToHHMM = (dt, tzone) => {
 
   const dtMoment = moment.unix(dt);
   const tzHHMM = dtMoment.tz(tzone).format('h:mm A');
@@ -37,7 +37,7 @@ export const convertToHHMM = (dt,tzone) => {
   // console.log('tzHHMM', tzHHMM);
   // const dayOfWeekDt = moment.tz(dt,'dddd',tzone);
   // console.log('dayOfWeekDt', dayOfWeekDt);
-  
+
   // const date = new Date(dt * 1000);
   // const hours = date.getHours();
   // const minutes = date.getMinutes();
@@ -87,4 +87,3 @@ export const getWeatherIcon = (weatherCondition) => {
 
 export default convertToMMDD;
 
-// purple: rgba(150, 32, 198, $transparency);

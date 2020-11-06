@@ -9,7 +9,6 @@ import Footer from "../components/Footer";
 import fetch from "isomorphic-unfetch";
 
 const Home = ({ data }) => {
-  // const [currPosition, setCurrPosition] = useState({});
   const [cityOrZip, setCityOrZip] = useState("");
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState({isActive: false, message: ''});
@@ -18,7 +17,7 @@ const Home = ({ data }) => {
     (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
   );
 
-  // persist data with session storage
+  // PERSIST DATA WITH SESSION STORAGE
   useEffect(() => {
     sessionStorage.setItem("state", JSON.stringify(weatherData));
   }, [weatherData]);
@@ -29,19 +28,6 @@ const Home = ({ data }) => {
 
   //CLOSE ALERT MESSAGE
   const onClose = () => setAlert({isActive: false, message: ''});
-
-  //GET CURR LOCATION
-  // const getCurrGPS = () => {
-  //   let currPos;
-  //   useEffect(()=>{
-  //     if (e.target.value === 'gps' || cityOrZip !== "") {
-  //       currPos = process.browser && navigator.geolocation.getCurrentPosition((position) => {
-  //         return  {latitude: position.coords.latitude, longitude: position.coords.longitude};
-  //       });
-  //     };
-  //   });
-
-  // }
 
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
