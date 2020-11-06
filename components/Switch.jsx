@@ -2,7 +2,9 @@
 import { jsx } from "theme-ui";
 import { Label, Radio } from "theme-ui";
 
-
+/**
+ * Switch component for Celsius/Fahrenheit toggle
+ */
 
 const Switch = ({ onToggle }) => {
 

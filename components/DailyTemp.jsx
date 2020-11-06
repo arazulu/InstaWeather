@@ -2,7 +2,11 @@
 import { jsx } from "theme-ui";
 import {Divider} from 'theme-ui'
 
-const TempCard = ({ temp, degree }) => {
+/**
+ * Secondary Section Content - displays Weekly weather forecast in Daily temperature cards
+ */
+
+const DailyTemp = ({ temp, degree }) => {
 
   const feelsLikeFahrenheit = `${parseInt(temp.feels_like * 1.8 + 32)} ºF`;
   const minFahrenheit = `${parseInt(temp.min * 1.8 + 32)} ºF`;
@@ -10,7 +14,7 @@ const TempCard = ({ temp, degree }) => {
 
 
   return (
-    <div sx={{variant: "tempCard"}}>
+    <div sx={{variant: "dailyTemp"}}>
         <p sx={{alignSelf: 'flex-end', fontSize: ['1.5em', '2em','2em'], margin: '0'}}>{temp.day}</p>
         <p sx={{alignSelf: 'flex-end', fontSize: ['1em','2em','2em'], margin: '0'}}>{temp.date}</p>
         <div sx={{ display: "flex", flexDirection: "column", alignItems: 'center', marginTop: '0'}}>
@@ -20,7 +24,7 @@ const TempCard = ({ temp, degree }) => {
           <p sx={{marginTop: '0em', marginBottom: 'auto',fontSize: '1.5em'}}>{temp.desc}</p>
         </div>
       <Divider/>
-        <div sx={{variant: 'tempCard.list',display: 'flex', flexDirection: ['column', 'column', 'row'],justifyContent: 'space-around', ul: {alignSelf: 'center'}}}>
+        <div sx={{variant: 'dailyTemp.list',display: 'flex', flexDirection: ['column', 'column', 'row'],justifyContent: 'space-around', ul: {alignSelf: 'center'}}}>
           <ul sx={{margin: '0', padding: '0', fontSize: ['1', '2', '3'], display: 'flex', flexDirection: 'column'}}>
             <li>Feels Like : {degree.celsius
                 ? `${temp.feels_like} ºC`
@@ -45,4 +49,4 @@ const TempCard = ({ temp, degree }) => {
   );
 };
 
-export default TempCard;
+export default DailyTemp;

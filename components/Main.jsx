@@ -1,11 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Spinner } from 'theme-ui';
-import TempCard from "../components/TempCard";
+import DailyTemp from "../components/dailyTemp";
 import CurrTemp from "./CurrTemp";
 import WeatherIcon from "../components/WeatherIcon";
 import { getWeatherIcon } from "../helper.js";
 
+/**
+ * Main Section of App - Primary & Secondary Sections
+ */
 
 const Main = ({ weatherData, degree, loading}) => {
   return (
@@ -21,7 +24,7 @@ const Main = ({ weatherData, degree, loading}) => {
             return (
               <div key={idx} sx={{variant: 'secondary.container'}}>
                 <WeatherIcon colorsTemplate={colorsTemplate}/>
-                <TempCard temp={curr} degree={degree} />
+                <DailyTemp temp={curr} degree={degree} />
               </div>
             );
           })}

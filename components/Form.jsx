@@ -2,6 +2,10 @@
 import { jsx } from "theme-ui";
 import { Field, Button } from "theme-ui";
 
+/**
+ * Header Content Form - location search field 
+ */
+
 const Form = ({ onChangeText, getData }) => {
   return (
     <form sx={{ variant: "header.form" }}>

@@ -3,6 +3,9 @@ import { jsx } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getWeatherIcon } from "../helper.js";
 
+/**
+ * Animated weather icons background
+ */
 
 const Background = ({weatherData}) => {
     

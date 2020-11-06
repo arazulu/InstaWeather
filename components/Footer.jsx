@@ -1,6 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
+/**
+ * Footer for required attribution
+ */
+
 const Footer = () => {
   return (
     <footer sx={{ variant: "footer"}}>

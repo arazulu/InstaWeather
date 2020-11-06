@@ -3,7 +3,13 @@ import { jsx } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getWeatherIcon } from "../helper.js";
 
-const MainDesc = ({ degree, data }) => {
+/**
+ * Primary Section Content - Displays Current Temperature Card
+ */
+
+const CurrTemp = ({ degree, data }) => {
+
+
   const colorsTemplate = getWeatherIcon(data.main);
   const feelsLikeFahrenheit = `${parseInt(data.curr.feels_like * 1.8 + 32)} ºF`;
   const currFahrenheit = `${parseInt(data.curr.temp * 1.8 + 32)} ºF`;
@@ -27,13 +33,13 @@ const MainDesc = ({ degree, data }) => {
     >
     <div sx={{  position: 'relative', padding: '1em'}}> 
       <div sx={{variant: 'currTemp.row1'}}>
-        <div sx={{ maxWidth: '75%', margin: ['5px', '10px', '10px'], display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'center'}}>
-        <h1 sx={{ variant: "card.textImage", margin: 0, fontSize: [5, 6, 6], zIndex: 1}}>
-          {data.coord.place}
-        </h1>
-        <p sx={{lineHeight: 1 , margin: '0', fontSize: ['2','3','3'], fontWeight: 'bold'}}>Timezone: {data.name}</p>
+        <div sx={{ variant: 'currTemp.row1.children', maxWidth: '75%', margin: ['5px', '10px', '10px'], justifyContent: 'center', textAlign: 'center'}}>
+          <h1 sx={{ variant: "card.textImage", margin: 0, fontSize: [5, 6, 6]}}>
+            {data.coord.place}
+          </h1>
+          <p sx={{lineHeight: 1 , margin: '0', fontSize: ['2','3','3'], fontWeight: 'bold'}}>Timezone: {data.name}</p>
         </div>
-        <div sx={{  display: 'flex', flexDirection: 'column', alignItems: 'center', alignSelf: 'center' }}>
+        <div sx={{ variant: 'currTemp.row1.children', alignItems: 'center', alignSelf: 'center' }}>
           <p sx={{ fontSize: [6, 7, 7], fontWeight: 'bold',margin: '0' }}>
             {degree.celsius
               ? `${data.curr.temp} ºC`
@@ -77,4 +83,4 @@ const MainDesc = ({ degree, data }) => {
   );
 };
 
-export default MainDesc;
+export default CurrTemp;

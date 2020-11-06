@@ -5,7 +5,7 @@ const theme = {
   breakpoints: ["800px", "1500px", "2560px"],
   colors: {
     ...future.colors,
-    primary: "#5F1094", // "#9921e8",
+    primary: "#5F1094",
     secondary: "#4B3E8E",
     highlight: "none",
     dark: "#3D3D3D",
@@ -224,6 +224,10 @@ const theme = {
       flexDirection: ['column', 'row', 'row'],
       justifyContent: 'space-around',
       maxHeight: ['40%', '60%', '60%'], 
+      children: {
+        display: 'flex', 
+        flexDirection: 'column', 
+      }
     },
     row2: {
       alignItems: 'center', 
@@ -233,7 +237,7 @@ const theme = {
       justifyContent: 'space-around', 
     }
   },
-  tempCard: {
+  dailyTemp: {
     display: "flex",
     flexDirection: "column",
     margin: "0",
