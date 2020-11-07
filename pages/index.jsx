@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Background from '../components/Background';
+import Background from "../components/Background";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
@@ -11,7 +11,7 @@ import fetch from "isomorphic-unfetch";
 const Home = ({ data }) => {
   const [cityOrZip, setCityOrZip] = useState("");
   const [degree, getDegreeType] = useState({ celsius: true });
-  const [alert, setAlert] = useState({isActive: false, message: ''});
+  const [alert, setAlert] = useState({ isActive: false, message: "" });
   const [loading, isLoading] = useState(false);
   const [weatherData, getWeatherData] = useState(
     (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
@@ -24,40 +24,46 @@ const Home = ({ data }) => {
 
   //ONCHANGE CITY/ZIP/ADDRESS TEXTFIELD
   const onChangeText = (event) => setCityOrZip(event.target.value);
-  
 
   //CLOSE ALERT MESSAGE
-  const onClose = () => setAlert({isActive: false, message: ''});
+  const onClose = () => setAlert({ isActive: false, message: "" });
 
   //API REQUEST FOR WEATHER, MAP, PIC, DATA
   const getData = (e) => {
-      e.preventDefault();   
+    e.preventDefault();
 
-      if (cityOrZip === "") return setAlert({isActive: true, message: 'Please enter a valid address'});
+    if (cityOrZip === "")
+      return setAlert({
+        isActive: true,
+        message: "Please enter a valid address",
+      });
 
-      setAlert(false);
-      isLoading(true);
+    setAlert(false);
+    isLoading(true);
 
-      fetch(`/api/search/${cityOrZip}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setTimeout(()=>{
-            getWeatherData(data);
-            isLoading(false);
-          },500);
-        })
-        .catch((error) => {
-          setAlert({isActive: true, message: `${error} - Please enter a valid location`});
+    fetch(`/api/search/${cityOrZip}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTimeout(() => {
+          getWeatherData(data);
           isLoading(false);
+        }, 500);
+      })
+      .catch((error) => {
+        console.log("error in fetch: ", error);
+        setAlert({
+          isActive: true,
+          message: `${error} - Please enter a valid location`,
         });
-  };   
-
+        isLoading(false);
+      });
+  };
 
   //ONCHANGE TEMP DEGREE SWITCH
   const onToggle = (event) => {
@@ -69,7 +75,7 @@ const Home = ({ data }) => {
     getDegreeType({ celsius: setChecked });
   };
 
-  console.log('weatherData', weatherData);
+  console.log("weatherData", weatherData);
 
   return (
     <>
@@ -85,9 +91,9 @@ const Home = ({ data }) => {
         />
         <link rel="icon" href="/images/sun.png" />
       </Head>
-    
+
       <div sx={{ maxWidth: "100vw" }}>
-        <Background weatherData={weatherData}/>
+        <Background weatherData={weatherData} />
         <Header
           onChangeText={onChangeText}
           getData={getData}
