@@ -1,3 +1,7 @@
+InstaWeather is a weather forecast and conditions app. Type in any city, address, and even landmark name to get the current and 7-day weather forecast.
+
+live demo: https://insta-weather-dun.vercel.app/
+
 Built with...
 
 REACT, NEXT.JS, THEME-UI and third-party api's:
