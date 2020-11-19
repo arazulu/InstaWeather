@@ -53,7 +53,7 @@ const Home = ({ data }) => {
         setTimeout(() => {
           getWeatherData(data);
           isLoading(false);
-        }, 500);
+        }, 0);
       })
       .catch((error) => {
         setAlert({
