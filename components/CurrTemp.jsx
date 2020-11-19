@@ -96,7 +96,7 @@ const CurrTemp = ({ degree, data }) => {
               flexDirection: ["column", "row", "row"],
               alignItems: "center",
               ul: {
-                alignSelf: "baseline",
+                alignSelf: ["center", "baseline", "baseline"],
                 margin: 0,
                 padding: [0, "20px", "20px"],
               },
@@ -112,7 +112,7 @@ const CurrTemp = ({ degree, data }) => {
               <li>Humidity: {data.curr.humidity}%</li>
               <li>UV Index: {data.curr.uvi}</li>
             </ul>
-            <ul>
+            <ul sx={{ textAlign: "center" }}>
               <li>Wind Speed: {data.curr.wind_speed} metre/sec</li>
               <li>Sunrise: {data.curr.sunrise}</li>
               <li>Sunset: {data.curr.sunset}</li>
