@@ -3,7 +3,6 @@ import { convertToMMDD, convertToHHMM } from "../../../helper.js";
 
 const search = async (req, res) => {
   const { loc } = req.query;
-  console.log("in search loc api");
   // request lon and lat from mapbox - geocoding api
   const mapbox = await fetch(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(
@@ -11,7 +10,6 @@ const search = async (req, res) => {
     )}.json?autocomplete=true&access_token=${process.env.MAPBOX_API}`
   );
   const mapboxJson = await mapbox.json();
-  console.log("get mapboxJson: ", mapboxJson);
 
   const coordinates = {
     lon: mapboxJson.features[0].geometry.coordinates[0],
@@ -24,14 +22,12 @@ const search = async (req, res) => {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&appid=${process.env.REACT_APP_OPEN_WEATHER}`
   );
   const openWeather = await fetchWeather.json();
-  console.log("get openWeather: ", openWeather);
 
   //get associated temp description photo from Unsplash
   const fetchPhoto = await fetch(
     `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_UNSPLASH}&count=1&query=${openWeather.current.weather.description}+${loc}&fit=fill&fill=blur&w=500&h=300`
   );
   const unsplash = await fetchPhoto.json();
-  console.log("get unsplash: ", unsplash);
 
   //create collective data object to be sent to frontend - 'weatherData'
 
@@ -77,7 +73,6 @@ const search = async (req, res) => {
       };
     }),
   };
-  console.log("get data: ", data);
 
   res.send(data);
 };

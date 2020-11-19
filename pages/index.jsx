@@ -56,7 +56,6 @@ const Home = ({ data }) => {
         }, 500);
       })
       .catch((error) => {
-        console.log("error in fetch: ", error);
         setAlert({
           isActive: true,
           message: `${error} - Please enter a valid location`,
@@ -75,16 +74,18 @@ const Home = ({ data }) => {
     getDegreeType({ celsius: setChecked });
   };
 
-  console.log("weatherData", weatherData);
-
   return (
     <>
       <Head>
         <title>Instaweather</title>
         <meta
           name="Description"
-          content="A realtime weather conditions and forecast lookup application, current, 7-day forecast"
-        ></meta>
+          content="A realtime weather conditions and forecast lookup website for current and 7-day weather report "
+        />
+        <meta
+          name="keywords"
+          content="insta, weather, app, weather, global, city, address, search"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"

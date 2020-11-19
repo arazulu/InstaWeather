@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 
 /**
- * Footer for required attribution
+ * Footer for required attribution of icons
  */
 
 const Footer = () => {

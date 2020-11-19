@@ -4,7 +4,7 @@ live demo: https://insta-weather-dun.vercel.app/
 
 Built with...
 
-REACT, NEXT.JS, THEME-UI and third-party api's:
+REACT, NEXT.JS, THEME-UI, MOMENTJS and third-party api's:
 
 - Unsplash - image api: https://unsplash.com/developers
 - Mapbox - Geocoding api: https://docs.mapbox.com/api/search/
