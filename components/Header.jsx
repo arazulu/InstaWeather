@@ -5,7 +5,7 @@ import Form from "./Form";
 import Switch from "./Switch";
 
 /**
- * Container for Title , Search field form and C/F toggle
+ * Container for Title , Search field form and Celsius/Fahrenheit toggle
  */
 
 const Header = ({ onChangeText, getData, alert, onClose, onToggle }) => {
