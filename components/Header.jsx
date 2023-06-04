@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { Alert, Close } from "theme-ui";
 import Form from "./Form";
 import Switch from "./Switch";

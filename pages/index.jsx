@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Background from "../components/Background";

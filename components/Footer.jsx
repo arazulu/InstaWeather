@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
-
 /**
  * Footer for required attribution of icons
  */

@@ -1,4 +1,15 @@
 {
-    "presets": ["next/babel"],
-    "plugins": ["inline-react-svg"]
-  }
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "importSource": "theme-ui", // or '@theme-ui/core'
+          "runtime": "automatic",
+          "throwIfNamespace": false
+        }
+      }
+    ]
+  ],
+  "plugins": ["inline-react-svg"]
+}
