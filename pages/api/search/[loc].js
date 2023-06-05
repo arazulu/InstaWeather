@@ -4,12 +4,16 @@ import { convertToMMDD, convertToHHMM } from "../../../helper.js";
 const search = async (req, res) => {
   const { loc } = req.query;
   // request lon and lat from mapbox - geocoding api
+  console.log("loc", loc);
+
   const mapbox = await fetch(
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURI(
       loc
     )}.json?autocomplete=true&access_token=${process.env.MAPBOX_API}`
   );
   const mapboxJson = await mapbox.json();
+
+  console.log("mapboxJson", mapboxJson);
 
   const coordinates = {
     lon: mapboxJson.features[0].geometry.coordinates[0],
@@ -23,11 +27,15 @@ const search = async (req, res) => {
   );
   const openWeather = await fetchWeather.json();
 
+  console.log("openWeather", openWeather);
+
   //get associated temp description photo from Unsplash
   const fetchPhoto = await fetch(
     `https://api.unsplash.com/photos/random/?client_id=${process.env.REACT_APP_UNSPLASH}&count=1&query=${openWeather.current.weather.description}+${loc}&fit=fill&fill=blur&w=500&h=300`
   );
   const unsplash = await fetchPhoto.json();
+
+  console.log("unsplash", unsplash);
 
   //create collective data object to be sent to frontend - 'weatherData'
 
@@ -73,6 +81,8 @@ const search = async (req, res) => {
       };
     }),
   };
+
+  console.log("data", data);
 
   res.send(data);
 };
