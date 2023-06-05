@@ -37,7 +37,7 @@ const search = async (req, res) => {
   );
 
   const data = {
-    unsplash: unsplash[0].urls.custom,
+    unsplash: unsplash[0].urls.regular,
     coord: coordinates,
     desc: openWeather.current.weather[0].description,
     main: openWeather.current.weather[0].main,
@@ -73,7 +73,7 @@ const search = async (req, res) => {
       };
     }),
   };
-
+  console.log("data", data);
   res.send(data);
 };
 
