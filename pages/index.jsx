@@ -18,7 +18,7 @@ const Home = ({ data }) => {
   useEffect(() => {
     if (isInit) {
       let data = JSON.parse(window.sessionStorage.getItem("state"));
-      getWeatherData(data);
+      getWeatherData(data || {});
       setIsInit(false);
     } else {
       window.sessionStorage.setItem("state", JSON.stringify(weatherData));
