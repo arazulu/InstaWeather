@@ -16,8 +16,7 @@ const DailyTemp = ({ temp, degree }) => {
           alignSelf: "flex-end",
           fontSize: ["1.5em", "2em", "2em"],
           margin: "0",
-        }}
-      >
+        }}>
         {temp.day}
       </p>
       <p
@@ -25,8 +24,7 @@ const DailyTemp = ({ temp, degree }) => {
           alignSelf: "flex-end",
           fontSize: ["1em", "2em", "2em"],
           margin: "0",
-        }}
-      >
+        }}>
         {temp.date}
       </p>
       <div
@@ -35,10 +33,10 @@ const DailyTemp = ({ temp, degree }) => {
           flexDirection: "column",
           alignItems: "center",
           marginTop: "0",
-        }}
-      >
+        }}>
         <p sx={{ fontSize: "3em", marginBottom: "0", marginTop: "0" }}>
-          {temp.temp} &#176;{degree.celsius ? "C" : "F"}
+          {degree.celsius ? temp.temp : parseInt(temp.temp * 1.8 + 32)} &#176;
+          {degree.celsius ? "C" : "F"}
         </p>
         <p sx={{ marginTop: "0em", marginBottom: "auto", fontSize: "1.5em" }}>
           {temp.desc}
@@ -52,8 +50,7 @@ const DailyTemp = ({ temp, degree }) => {
           flexDirection: ["column", "column", "row"],
           justifyContent: "space-around",
           ul: { alignSelf: "center" },
-        }}
-      >
+        }}>
         <ul
           sx={{
             margin: "0",
@@ -61,8 +58,7 @@ const DailyTemp = ({ temp, degree }) => {
             fontSize: ["1", "2", "3"],
             display: "flex",
             flexDirection: "column",
-          }}
-        >
+          }}>
           <li>
             Feels Like :{" "}
             {degree.celsius ? `${temp.feels_like} ºC` : feelsLikeFahrenheit}

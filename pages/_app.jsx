@@ -7,6 +7,8 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fas);
 
 const App = ({ Component, pageProps }) => {
+  console.log("theme~:", theme);
+
   return (
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
