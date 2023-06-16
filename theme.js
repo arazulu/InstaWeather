@@ -5,6 +5,7 @@ const theme = {
   breakpoints: ["800px", "1500px", "2560px"],
   config: {
     useColorSchemeMediaQuery: false,
+    useLocalStorage: false,
   },
   colors: {
     ...future.colors,
