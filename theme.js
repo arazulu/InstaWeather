@@ -3,6 +3,9 @@ import { future } from "@theme-ui/presets";
 const theme = {
   ...future,
   breakpoints: ["800px", "1500px", "2560px"],
+  config: {
+    useColorSchemeMediaQuery: false,
+  },
   colors: {
     ...future.colors,
     primary: "#5F1094",
