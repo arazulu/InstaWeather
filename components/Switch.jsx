@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { Label, Radio } from "theme-ui";
 
 /**

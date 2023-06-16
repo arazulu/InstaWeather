@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Background from "../components/Background";
@@ -13,13 +11,18 @@ const Home = ({ data }) => {
   const [degree, getDegreeType] = useState({ celsius: true });
   const [alert, setAlert] = useState({ isActive: false, message: "" });
   const [loading, isLoading] = useState(false);
-  const [weatherData, getWeatherData] = useState(
-    (process.browser && JSON.parse(sessionStorage.getItem("state"))) || {}
-  );
+  const [weatherData, getWeatherData] = useState({});
+  const [isInit, setIsInit] = useState(true);
 
   // PERSIST DATA WITH SESSION STORAGE
   useEffect(() => {
-    sessionStorage.setItem("state", JSON.stringify(weatherData));
+    if (isInit) {
+      let data = JSON.parse(window.sessionStorage.getItem("state"));
+      getWeatherData(data || {});
+      setIsInit(false);
+    } else {
+      window.sessionStorage.setItem("state", JSON.stringify(weatherData));
+    }
   }, [weatherData]);
 
   //ONCHANGE CITY/ZIP/ADDRESS TEXTFIELD

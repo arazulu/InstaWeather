@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { Spinner } from "theme-ui";
 import DailyTemp from "../components/DailyTemp";
 import CurrTemp from "./CurrTemp";

@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { Field, Button } from "theme-ui";
 
 /**
@@ -13,8 +11,8 @@ const Form = ({ onChangeText, getData }) => {
         htmlFor="address"
         name="address"
         type="search"
-        ariaHidden="true"
-        ariaLabel="input box for search query"
+        aria-hidden="true"
+        aria-label="input box for search query"
         placeholder="type address, city, zip code or landmark"
         onChange={onChangeText}
         sx={{
@@ -27,16 +25,15 @@ const Form = ({ onChangeText, getData }) => {
         }}
       />
       <Button
-        ariaLabel="Submit search text"
-        ariaHidden="true"
+        aria-label="Submit search text"
+        aria-hidden="true"
         type="submit"
         onClick={getData}
         sx={{
           variant: "header.form.children",
           cursor: "pointer",
           alignItems: "center",
-        }}
-      >
+        }}>
         Submit
       </Button>
     </form>

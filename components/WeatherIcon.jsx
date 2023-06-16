@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 /**
